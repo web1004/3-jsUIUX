@@ -1,0 +1,159 @@
+@media screen and (max-width:767px) {
+
+  section{padding: 5rem 0;}
+  section .section_inner{max-width: 100%;}
+  .mo_only{display: block;}
+
+  .intro .main_title h1{font-size: 2.5rem;}
+  .intro .main_title h2{font-size: 0.8rem;}
+
+  /* Trigger */
+  .mo_menu_btn{
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    background: url(../image/menu-button.svg) no-repeat center;
+    cursor: pointer;
+    z-index: 100;
+  }
+  .header_nav{display: none;}
+
+  /* on 클래스 유무에 따라 바뀌는 것으로 수정 */
+  .mo_menu_btn.on {background-color:#2F4858;}
+  .header_nav.on {
+    display: block;
+    position: absolute;
+    top: 72px;
+    right: 0;
+    background-color: #2F4858;
+    padding-bottom: 1em;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  .header_nav ul{
+    flex-direction: column;
+    column-gap: 0px;
+  }
+  .nav_item {
+    width: 100vw;
+    text-align: center;
+  }
+  .nav_item:hover:after{
+    width: 0;
+    height: 0;
+  }
+  .nav_item a {width: 100vw;}
+  .nav_item:not(:last-child) {border-bottom: 2px solid rgba(255, 255, 255, 0.06);}
+  .main_title h1{font-size: 3rem;}
+  .main_title h2{
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* 강좌안내 */
+  .info_content{
+    flex-direction: column;
+    column-gap: 0px;
+    row-gap: 10px;
+    width: 100%;
+  }
+  .info_card{
+    flex: 0;
+    width: 95%;
+    margin: auto;
+  }
+  .info_content:hover .info_card{
+    transform: none;
+    transform-origin: none;
+    filter: none;   
+  }
+  .info_content .info_card:hover{
+    transform: none;
+    filter: none;
+  }
+
+  /* HTML/CSS */
+  .section_inner.col{flex-direction: column;}
+  .hc_content{    
+    flex-direction: column;
+    justify-content: center;
+    column-gap: 0;
+    row-gap: 3rem;
+  }
+  .hc_logo{
+    text-align: center;
+    height: 10rem;
+  }
+  .hc_logo:after{width: 50%;}
+  .css{margin-top: 5rem;}
+
+  /* 자바스크립트 */
+  .js_content{
+    flex-direction: column;
+    column-gap: 0;
+    row-gap: 3rem;
+    padding: 0 1.5rem;
+  }
+  .js_content .logo_area{
+    border-right: 0px solid #666;
+    border-bottom: 3px solid #666;
+    padding-bottom: 2rem;
+  }
+  .text_area p br{display: none;}
+  .js_content .check{
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  /* 커리큘럼 */
+  #curriculum .section_inner{text-align: center;}
+  .curriculum .curriculum_list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .curriculum .curriculum_list li {
+    margin: auto;
+    line-height: 35px;
+    cursor: pointer;
+  }
+  .curriculum .curriculum_list li:before {background-color: #559f2e;}
+  .curriculum .curriculum_list li span {
+    position: static;  /* position초기화 */
+    transform: rotate(0);
+    margin-left: 3rem;
+    font-size: 1.2rem;
+  }
+  .curriculum_progress {
+    top: 10px;
+    left: 12px;
+    width: 8px;
+    height: 620px;
+    transform: skewY(-30deg);
+  }
+  .curriculum_progress .bar{display: none;}
+  
+
+  /* 문의하기 */
+  .tab_menu li{width: 150px;}
+  .slide_1 p strong{display: none;}
+  .slide_1 p span{padding-left: 3rem;}
+  .slide_1 p{
+    width: 60%;
+    position: relative;
+  }
+  .slide_1 p:before{
+    position: absolute;
+    font-family: fontawesome;
+    display: inline-block;
+    transform: translateY(0.4rem)
+  }
+  .slide_1 p:nth-child(1):before{content: '\f095';}
+  .slide_1 p:nth-child(2):before{content: '\f015';}
+  .slide_1 p:nth-child(3):before{content: '\f0e0';}
+
+  .slide_2 .form{width: 60%;}
+
+}

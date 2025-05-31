@@ -1,0 +1,58 @@
+@charset "utf-8"; 
+
+*{  /* 전체선택자->모든 태그에 여백을 뺌 */
+	margin:0;
+	padding:0;	
+	box-sizing:border-box ;
+}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,abbr,address,cite,code,del,dfn,em,img,
+ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,
+menu,nav,section,summary,time,mark,audio,video{margin:0; padding:0;}
+/*블록요소들을 이렇게 여백 0으로 초기화 시켜 모든 브라우저에서 앞으로 주는 여백이 동일한 결과로 적용되도록 함. 전체 선택자 *를 사용하는 것보다 이렇게 블록을 나열하면 성능이 올라감
+*/
+
+html,body{
+	width:100%; 
+	height:100%;
+}
+
+ol,ul{ 
+	list-style-type:none;
+}   
+a{
+	text-decoration:none; /*하이퍼링크 밑줄 없애기*/
+	color:inherit;  /*하이퍼링크의 글자색 부모한테 상속받기*/
+}  
+
+
+h1,h2,h3,h4,h5,h6{
+	font-size:100%; /*제목 태그들에 글자크기를 초기화하여 앞으로 부여하는 크기의 기준을 똑같이 설정함*/
+	font-weight: normal;  /*기본굵기 제거*/
+	margin-top: 0;  /*기본마진 중 위쪽마진이 큰편이어서 제거*/
+}
+
+
+button,
+input{
+	outline: none;
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+img{
+	vertical-align:top; 
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+input,select{vertical-align:middle;} /*문자와 나란히 입력박스를 배치하면 높낮이가 맞지않아 맞추기 위함 */
+
+.hidden{
+	display: none;
+}

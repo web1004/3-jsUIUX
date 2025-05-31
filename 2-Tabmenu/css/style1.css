@@ -1,0 +1,60 @@
+@import url(reset.css);
+
+body{
+  line-height: 25px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+section{width: 800px;}
+
+/* TabMenu */
+.tabMenu{display: flex;}
+.tabMenu li{
+  width: 120px;
+  background-color: #eee;
+  border-right: 1px solid #ddd;
+  padding: 5px;
+  border-top: 2px solid transparent;
+  cursor: pointer;
+}
+.tabMenu li:last-child {
+  width: 170px;
+  border-right: none;
+}
+.tabMenu li:hover,
+.tabMenu li.active{
+  background-color: #fff;
+  border-top: 2px solid crimson;
+}
+
+
+/* TabContent */
+.tabContents{
+  background-color: #fff;
+  padding: 50px;
+  box-sizing: border-box;
+}
+.tabContents div h2{
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.tabContents div{display: none;}
+.tabContents div.show{display: block;}
+
+/* .tabContents div{
+  opacity: 0;
+  transition: 0.35;
+}
+.tabContents div.show{opacity: 1;}
+ */
+.tabContents div img{
+  float: left;
+  margin-right: 10px;
+}

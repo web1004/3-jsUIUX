@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-stagger3</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    section{
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: blueviolet;
+    }
+    h1{
+      font-size: 50px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    ul{
+      display: flex;
+      list-style-type: none;
+      width: 400px;
+      flex-flow: wrap;
+    }
+    ul li{
+      width: calc(100% / 9 - 4px);
+      height: 30px;
+      background-color: pink;
+      margin: 0 2px 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>title</h1>
+    <ul>
+      <!-- <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li> -->
+    </ul>
+  </section>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    const staggerWrap = document.querySelector('ul');
+    const fragment = document.createDocumentFragment(); 
+    const grid = [9,5];
+    const col = grid[0];
+    const row = grid[1];
+    const allElem = col*row;
+
+    for(let i=0;i<allElem;i++){
+      const li = document.createElement('li');
+
+      fragment.appendChild(li);
+    }
+    staggerWrap.appendChild(fragment);
+
+    let tl=anime.timeline({
+      targets:'ul li',
+      delay:anime.stagger(200,{grid:[9,5],from:'center'}),
+      loop:true,
+      direction:'alternate'
+    })
+    tl.add({
+      scale:[
+        {value:.1,easing:'easeOutSine',duration:500},
+        {value:1,easing:'easeOutQuad',duration:1200},
+      ]
+    })
+    .add({
+      translateX:anime.stagger(10,{grid:[9,5],from:'center',axis:'x'}),
+      translateY:anime.stagger(10,{grid:[9,5],from:'center',axis:'y'}),
+      rotate:anime.stagger([0,90],{grid:[9,5],from:'center',axis:'x'})
+    })
+  </script>
+</body>
+</html>

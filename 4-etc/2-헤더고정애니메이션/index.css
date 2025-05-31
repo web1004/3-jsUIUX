@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* Reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style-type: none;}  
+a{text-decoration: none;color: inherit;}
+
+/* 변수선언 */
+:root{
+  --purple: #9145d3;
+  --yellow: #eeaf03;
+  --white: #fff;
+  --first-height: 100vh;
+  --sticky-height: 90px;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: auto;
+}
+.first-view{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--first-height);
+  background: url(image/intro.jpg) no-repeat center/cover; /* 높이보다 작아이지않게 함 */
+  display: grid; /* 안에 구성요소가 2개만 있기 때문에 기본적으로 위아래로 분할이 됨 */
+  place-items: center; 
+  /*justify-items, align-items 를 합친 속성 
+    place-items: start end;  상하,좌우 */
+  background-blend-mode: multiply;
+}
+/* 구글검색 : w3schools place-items 
+justify-items: center;  (start, end)
+align-items: center; (start, end)
+*/
+
+.first-view > *, section{transition: 0.6s;}
+.first-view > *{
+  grid-area: 1/1;
+  padding: 0 20px;
+  width: 100%;
+}
+.first-view h1{
+  font-family: "Lobster", sans-serif;
+  color: var(--white);
+  font-size: 45px;
+}
+header{
+  opacity: 0;
+  visibility: hidden;
+}
+/* 두 속성을 함께 사용하면 요소는 완저닣 안보이게 되고 공간은 차지하지만 시각적으로 인터렉션상으로도 확실히 제거됨 */
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav img{width: 150px;}
+nav ul{
+  display: flex;
+  gap: 40px;
+}
+nav ul li a{
+  font-size: 1.2rem;
+  color: var(--white);
+  transition: 0.2s;
+}
+
+.second-view{padding-top: var(--first-height);}
+.scroll{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #000;
+  z-index: 1;
+}
+.container p{font-size: 32px;}
+
+
+/* 스크롤을 내렸을때 */
+.sticky .first-view{
+  height: var(--sticky-height);
+  background-color: var(--purple);
+}
+.sticky .first-view h1{
+  opacity: 0;
+  visibility: hidden;
+}
+.sticky .first-view header{
+  opacity: 1;
+  visibility: visible;
+}
+.sticky .second-view{
+  /* padding-top: 150px; */
+  padding-top: calc(var(--sticky-height) + 20vh);
+}
+
+@media (max-width:600px){
+  .first-view .nav{
+    flex-direction: column;
+    justify-content: center;
+  }
+  nav ul li a{
+  font-size: 1rem;
+  }
+
+}

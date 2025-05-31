@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-propertires</title>
+  <style>
+    div{
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+    }
+    .box1{
+      background-color: blueviolet;
+    }
+    .box2{
+      background-color: royalblue;
+    }
+    .box3{
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets:'.box1',
+      translateX:250,
+      easing:'linear',
+      backgroundColor:'#000',
+      loop:true,
+      direction:'alternate',
+      borderRadius:'50%'
+    })
+    anime({
+      targets:'.box2',
+      translateX:280,
+      translateY:300,
+      duration:1000,
+      easing:'linear',
+      delay:1000,
+      loop:true,
+      direction:'alternate',
+      easing:'easeInOutBack'
+    })
+    anime({
+      targets:'.box3',
+      translateX:{
+        value:400,
+        duration:1500,
+        delay:1000
+      },
+      rotate:{
+        value:360,
+        duration:1200
+      }
+    })
+  </script>
+</body>
+</html>

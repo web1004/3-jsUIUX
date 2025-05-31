@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07-svg1</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    section{
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .svg{
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1;
+      width: 800px;
+      min-width: 800px;
+    }
+    .eye{
+      position: absolute;
+      left: calc(50% + 200px);
+      top: calc(50% - 105px);
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 50%;
+      transform: rotate(-45deg);
+      animation: ani 1s infinite alternate ease-in-out;
+    }
+    @keyframes ani{
+      100%{
+        height: 10px;
+        transform: skew(20deg);
+      }
+    }
+
+    .circle{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+      left: calc(50% - 400px);
+      top: calc(50% - 190px);
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="circle"></div>
+    <div class="eye"></div>
+
+    <svg class="svg" viewBox="0 0 1312.03 601.61">
+      <path d="M235.15,222.08c178.85,29.5,271.23-118.72,468-186,255.15-87.25,580.81-2.51,607,108,27.14,114.5-245.16,349.85-503,337-192.41-9.59-273.58-152.25-423-108C226,419.91,204.4,613,126.15,601.08c-105.27-16-175.83-382.19-83-436C86.6,139.89,128.9,204.55,235.15,222.08Z">
+      </path>
+    </svg>
+  </section>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    const path = anime.path('.svg path');
+
+    anime({
+      targets: '.circle',
+      translateX: path('x'),
+      translateY: path('y'),
+      rotate: path('angle'),
+      easing: 'linear',
+      duration: 3000,
+      loop: true
+    })
+  </script>
+</body>
+</html>

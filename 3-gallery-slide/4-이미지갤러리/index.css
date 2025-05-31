@@ -1,0 +1,92 @@
+/* Reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style-type: none;}  
+a{text-decoration: none;color: inherit;}
+
+h1{
+  text-align: center;
+  padding: 40px;
+  color: #333;
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+.gallery{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.gallery img{
+  cursor: pointer;
+  max-width: 300px;
+  width: 50%;
+  border-radius: 10px;
+}
+
+#modalBox{
+  position: fixed;
+  /* width: 100%;
+  height: 100%; */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0,0,0,0.8);
+}
+#modalBox>img{ /* 큰이미지 */
+  max-width: 60%;
+  max-height: 60vh;
+  min-height: 28vh;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
+  border-radius: 10px;
+}
+
+.thumbnail-wrap{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.thumbnail{
+  width: 80px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+}
+.thumbnail:hover,
+.thumbnail.active-thumb{
+  opacity: 0.7;
+}
+
+.close-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+#modalBox button{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#modalBox button:hover{background: rgba(0,0,0,0.8);}
+.prev-btn{left: 10px;}
+.next-btn{right: 10px;}

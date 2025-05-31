@@ -1,0 +1,60 @@
+/* Reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style-type: none;}  
+a{text-decoration: none;color: inherit;}
+
+
+
+.grid{
+  position: relative;
+  height: 100vh;
+}
+.grid .col{
+  position: absolute;
+  cursor: pointer;
+  width: 50%;
+  height: 50%;
+  transition: 0.5s;
+}
+.grid .col figure{
+  /* margin: 0;
+  padding: 0; */
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.grid .col figure img{
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+.grid .col figcaption{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.col-1{top: 0;left: 0;}
+.col-2{top: 0;right: 0;}
+.col-3{bottom: 0;left: 0;}
+.col-4{bottom: 0;right: 0;}
+
+figcaption{
+  color: #fff;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.grid .col.animate{
+  width: 100%;
+  height: 100%;
+}
+  /* z-index: 2; */
+  /* 
+  transitionstart과 transitionend를 사용하지 않고 css에서 적용하게 되면
+  커지는건 되지만 꺼질때 클릭하자마자 바로 animate가 꺼지는 순간 z-index가 빠지는데 아직 줄어들고 있는 중임. 그래서 줄어든 과정을 자연스롭게 볼수 없음*/
+
+.grid .col.animate figcaption{
+  font-size: 3rem;
+  opacity: 1;
+}

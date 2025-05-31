@@ -1,0 +1,87 @@
+@import url(reset.css);
+
+/* .blind{
+  position: absolute; 
+  width: 1px; 
+  height: 1px;
+  overflow: hidden; 
+  margin: -1px;
+} */
+
+header{
+  background: #111;
+  position: relative;
+}
+.header_in{
+  border: 1px dotted red;
+  width:1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.gnb_in{
+  width:1200px;
+  margin: auto;
+  border: 1px dotted blue;
+  display: flex;
+  justify-content: flex-end;
+}
+.header_in{
+  display: flex;
+  align-items: center;
+}
+.logo a{
+  display: block;
+  line-height: 1;
+  font-size: 20px;
+  color: #fff;
+}
+.nav{
+  width: 70%;
+  max-width: 800px;
+  margin-left: 100px;
+}
+.gnb{
+  display: flex;
+  justify-content: space-around;
+}
+.gnb li{
+  flex:1;
+}
+.gnb>li>a{ /*.d1*/
+  display: block;
+  padding: 20px 10px;
+  text-align: center;
+  color: #fff;
+}
+.gnb_bg{
+  background: #e8e8e8;
+  position: absolute; 
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.35s;
+}
+.gnb_in{
+  padding: 50px 0;
+  display: flex;
+}
+.lnb{
+  width: 75%;
+  display: flex;
+}
+.lnb li.depth2>a{
+  font-weight: bold;
+  display: block;
+  color: #111;
+  margin-bottom: 15px;
+}
+.gnb>li a:hover, .gnb>li a:focus{
+  color: orangered;
+}
+
+section p{
+  color: #ccc;
+  font-size: 45px;
+}

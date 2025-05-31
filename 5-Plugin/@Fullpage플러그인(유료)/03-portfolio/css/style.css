@@ -1,0 +1,339 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul{list-style-type: none;}
+a{text-decoration: none;}
+
+/* Header-Topmenu_____________________________ */
+
+/* 햄버거메뉴 */
+#nav_icon{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+#nav_icon div{
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+#nav_icon div span{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all .3s ease-in-out;
+}
+#nav_icon div span:nth-child(1){top: 0;}
+#nav_icon div span:nth-child(2){top: 50%;}
+#nav_icon div span:nth-child(3){top: 100%;}
+body.nav_active #nav_icon div span:nth-child(1){
+  transform: rotate(45deg);
+  top: 50%;
+}
+body.nav_active #nav_icon div span:nth-child(2){
+  transform: translateX(100%);
+  opacity: 0; 
+}
+body.nav_active #nav_icon div span:nth-child(3){
+  transform: rotate(-45deg);
+  top: 50%;
+}
+
+/* 탑메뉴 */
+nav{
+  position: fixed;
+  z-index: 2;
+  top: 30px;
+  right: 60px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(50px);
+}
+nav ul{display: flex;}
+nav ul li{margin-right: 20px;}
+nav ul li a{
+  color: rgba(255, 255, 255, 0.664);
+  font-size: 18px;
+}
+
+/* 탑메뉴의 현재위치 활성화 */
+body.fp-viewing-Num0 nav ul li:nth-child(1) a,
+body.fp-viewing-Num1 nav ul li:nth-child(2) a,
+body.fp-viewing-Num2 nav ul li:nth-child(3) a,
+body.fp-viewing-Num3 nav ul li:nth-child(4) a,
+body.fp-viewing-Num4 nav ul li:nth-child(5) a{
+  color: rgba(255, 255, 255, 1);
+}
+
+body.nav_active nav{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+/* .section.active h1.title{
+  opacity: 1;
+  transform: translateX(0%);
+} */
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span{
+  background-color: #fff;
+}
+
+
+/* Section_____________________________ */
+.inner{
+  height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.inner h1 img{  /* 공통 */
+  width: 400px;
+}
+
+
+/* Section0 */
+#sec0{background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);}
+#sec0 .inner{display: block;}
+#sec0 .inner svg,
+#sec0 .inner img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+#sec0 .inner .svg1{
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  transform: translate(-50%,-50%);
+
+}
+#sec0 .inner .svg2{
+  width: 657px;
+  transform: translate(-49%,-49%);
+}
+
+
+/* Section1 */
+#sec1{background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);}
+#sec1 .inner{flex-direction: column;}
+.gage_wrap{
+  margin-top: 50px;
+  width: 500px;
+}
+.gage_wrap ul{display: flex;}
+.gage_wrap ul li{
+  width: 25%;
+  text-align: center;
+}
+.gage_wrap ul li .gage{
+  width: 15px;
+  height: 150px;
+  background-color: hsla(0, 0%, 100%, 0.267);
+  margin: auto;
+  position: relative;
+  padding: 5px;
+}
+.gage_wrap ul li .gage .gage_in{
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  height: 0%;
+  background-color: #fff;
+}
+.gage_tit{
+  color: #fff;
+  margin-top: 20px;
+}
+
+
+/* Section2 */
+#sec2{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/sec2_bg_0.png);
+  transition: background 0.2s;
+}
+#sec2 h1{
+  opacity: 0;
+  transform: translateY(-50px);
+}
+.slider_wrap{
+  max-width: 700px;
+  width: 50vw;
+  height: 35vw;
+  max-height: 550px;
+  position: relative;
+  margin-left: 50px;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+.sec2_slider{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.329);
+  overflow: hidden;
+  border-radius: 30px;
+}
+.sec2_slider li{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  text-indent: -999999px;
+}
+.sec2_slider li.On{opacity: 1;}
+.sec2_slider li:nth-child(1){background-image: url(../img/sec2_1.png);}
+.sec2_slider li:nth-child(2){background-image: url(../img/sec2_2.png);}
+.sec2_slider li:nth-child(3){background-image: url(../img/sec2_3.png);}
+.sec2_slider li:nth-child(4){background-image: url(../img/sec2_4.png);}
+
+.btn_wrap{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.slide_btn{
+  display: block;
+  width: 10px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: -99999px;
+  background-size: contain;
+  background-image: url(../img/arr_01.png);
+}
+.slide_btn.right{background-image: url(../img/arr_02.png);}
+
+.slide_icons{display: flex;}
+.slide_icons li{
+  width: 10px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.63);
+  margin: 0 2px;
+  text-indent: -99999px;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+  cursor: pointer;
+}
+.slide_icons li.Active{
+  width: 20px;
+  background-color: #fff;
+}
+
+
+/* Section3 */
+#sec3{
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden; 
+}
+h1{
+  font-family: 'Back to Black Demo';
+  font-size: 100px;
+  display: flex;
+  letter-spacing: -3px;
+  color: #fff;
+}
+#sec3 h1{
+  transform: translateX(-100px);
+}
+#sec3 h1 span{
+  opacity: 0;
+}
+#sec3 h1 span:nth-child(6){margin-right: 50px;}
+
+.sec3_svg{
+  fill: #667eea;
+  stroke: none;
+  position: absolute;
+  /* left: 0; ->큰화면에 꽉차게 하기 위해 빼줌 */
+  bottom: 0;
+  width: 100%;
+}
+
+
+/* Section4 */
+#sec4{
+  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+  overflow: hidden;
+}
+#sec4 h1 img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 3;
+  /* opacity: 0; */
+  opacity: 1;  /* (3)수정-처음과 끝을 같게 만들기위에 처음부터 보이게 함 */
+}
+#sec4 .img_wrap{
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: #009efd;  */
+}
+.tail{
+  width: calc(100% / 20);
+  height: calc(100% / 20);
+  /* background-color: #3cba92; */
+  background-color: #009efd;  /* (4)수정-끝날때 처음 색상과 동일하게 함 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 만약에 섹션별로 방향을 다르게 하고 싶을 경우는 */
+#sec1 h1.title{
+  transform: translateY(-100%) translateX(0);
+}
+#sec1.section.active h1.title{
+  transform: translateY(0%) translateX(0);
+}
+
+
+
+
+
+
+
+
+
+/* #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span{
+  background-color: #000;
+} */
+

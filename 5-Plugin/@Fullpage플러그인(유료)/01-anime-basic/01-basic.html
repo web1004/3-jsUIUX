@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-basic</title>
+  <style>
+    ul{list-style-type: none;}
+    ul.menu li{
+      width: 100px;
+      height: 100px;
+      background-color: blueviolet;
+      margin-bottom: 20px;
+    } 
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets:'ul.menu li',
+      translateX: 250,
+      easing:'linear',
+      loop:true,
+      direction:'alternate',
+      delay:anime.stagger(100),
+      endDelay:anime.stagger(100)
+    })
+  </script>
+</body>
+</html>

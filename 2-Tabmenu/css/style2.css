@@ -1,0 +1,57 @@
+@import url(reset.css);
+@import url('https://cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css');
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-weight: 300;
+  color: #fff;
+}
+
+section{
+  width: 700px;
+  margin: auto;
+}
+section h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+}
+.accordion{
+  margin-top: 30px;
+}
+.accordion .faq{
+  transition: 0.5s;
+}
+.accordion .faq_title,
+.accordion .faq_text {
+  background-color: #303030;
+  padding: 10px 15px;
+  margin-bottom: 7px;
+}
+.accordion .faq_title {
+  cursor: pointer;
+  transition: 0.35s;
+}
+.accordion .faq_title:after {
+  content: '\e9c5';
+  font-family: xeicon;
+  float: right;
+  margin-top: 5px;
+  transition: 0.35s;
+}
+
+/*faq_answer요소의  max-height를 0으로 주었다가 faq가 active되면 200px로 변경 */
+.faq_answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+.faq.active .faq_answer {
+  max-height: 200px;
+  transition: max-height 0.5s;
+}
+
+/* active 가 되면 바뀔 내용들 */
+.faq.active .faq_title:after {transform: rotate(45deg);}
+.faq.active .faq_title{background-color: #7f97cb;}

@@ -1,0 +1,114 @@
+@import url(common.css);
+
+/* Header */
+#header{
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.3);
+}
+#header h1{
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  font-size: 32px;
+}
+#header h1 a{color: #fff;}
+#gnb{
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  display: flex;
+}
+#gnb li{
+  padding: 0 20px;
+  color: #fff;
+}
+#gnb li.active{
+  color: crimson;
+  font-weight: bold;
+}
+
+/* Page Number */
+#tt { 
+  position:fixed; 
+  z-index:1000; 
+  left:0; 
+  top:200px; 
+  background:red; 
+  padding:5px; 
+  font-size:100px; 
+  color:white; 
+}
+
+/* Dot Button */
+#dot{
+  position:fixed; 
+  z-index:1000; 
+  bottom:10px; 
+  left:50%;
+  transform: translateX(-50%);
+  display: flex;
+  column-gap: 15px;
+}
+#dot span{
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 20px 0;
+  cursor: pointer;
+}
+#dot span.active{
+  display: block;
+  width: 60px;
+  height: 10px;
+  border-radius: 15px;
+  background-color: crimson;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* Container */
+#container{
+  width: calc(400vw - (400vw - 400%)); /*->스클로바 포함*/
+  /* width: 400vw;  섹션개수 전체 폭 vw */
+  display: flex;  /* 가로배열 */
+  color: #fff;
+}
+.inner{
+  width: 1200px;
+  margin: auto;
+}
+#container h2 { 
+  font-size:250px; 
+  padding-top:70px; 
+  font-weight:100; 
+  letter-spacing:-10px; 
+}
+
+#home{
+  width: 100vw;
+  height: 100vh;
+  background-color: yellowgreen;
+}
+
+#about{
+  width: 100vw;
+  height: 100vh;
+  background-color: royalblue;
+}
+
+#works{
+  width: 100vw;
+  height: 100vh;
+  background-color: orange;
+}
+
+#contact{
+  width: 100vw;
+  height: 100vh;
+  background-color: #333;
+}

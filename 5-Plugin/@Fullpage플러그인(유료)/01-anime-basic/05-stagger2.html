@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-stagger2</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    section{
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: blueviolet;
+    }
+    h1{
+      font-size: 50px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    ul{
+      display: flex;
+      list-style-type: none;
+      width: 400px;
+      flex-flow: wrap;
+    }
+    ul li{
+      width: calc(100% / 9 - 4px);
+      height: 30px;
+      background-color: pink;
+      margin: 0 2px 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>title</h1>
+    <ul>
+      <!-- <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li> -->
+    </ul>
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    const staggerWrap = document.querySelector('ul');
+    const fragment = document.createDocumentFragment(); //엘르먼트안에 새로운 요소를 등록할수 있음
+    const grid = [9,3];
+    const col = grid[0];
+    const row = grid[1];
+    const allElem = col*row;
+
+    for(let i=0;i<allElem;i++){
+      const li = document.createElement('li');
+
+      fragment.appendChild(li);
+    }
+    staggerWrap.appendChild(fragment);
+
+    anime({
+      targets:'ul li',
+      easing:'linear',
+      duration:1000,
+      //scale:anime.stagger([0.5,2])->0.5에서 2까지 범위설정
+      //scale:anime.stagger([0.5,1],{grid:[9,3],from:'center'})
+      scale:anime.stagger([0.5,1],{grid:[9,3],from:'center',axis:'x'})
+    })
+  </script>
+</body>
+</html>
