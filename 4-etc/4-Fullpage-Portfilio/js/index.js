@@ -52,7 +52,7 @@ let t = areas.length -1; //마지막 섹션의 index(0부터 시작하므로 len
 areas.forEach((area,index)=>{
 	
   area.addEventListener("wheel",(e)=>{ //각 해당영역에서 휠돌렸을때
-    n = Number(e.currentTarget.getAttribute('data-idx')); 
+    const n = Number(e.currentTarget.getAttribute('data-idx')); 
               //e.currentTarget ---> 이벤트의 대상인 해당area를 가리킴
               //요소.getAttribute('data-idx') ---> 요소의 data-idx속성값
               //Number(값) ---> 값을 계산할 수 있는 숫자로 가져옴
@@ -94,14 +94,15 @@ window.addEventListener('scroll', function () {
     a = 0;
   } else if (sc >= wh && sc < wh * 2) {
     a = 1;
-
+    chartAnimation();
     //GSAP 
-    let tl = gsap.timeline();
-    tl.to('#about h2',{y:50, opacity:1, duration:1})
-    tl.to('#about p',{y:50, opacity:1, duration:1})
+    // let tl = gsap.timeline();
+    // tl.to('#about h2',{y:50, opacity:1, duration:1})
+    // tl.to('#about p',{y:50, opacity:1, duration:1})
 
   } else if (sc >= wh * 2 && sc < wh * 3) {
     a = 2;
+
   } else if (sc >= wh * 3) {
     a = 3;
   }
@@ -111,7 +112,7 @@ window.addEventListener('scroll', function () {
 
 
 //키보드 방향키 조작 
-/* window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', (e) => {
   console.log(e.key);
   if (e.key === 'ArrowDown') {
     a++;
@@ -128,7 +129,7 @@ window.addEventListener('scroll', function () {
   gnbMenu[a].classList.add('active');
   indicatorBtn[a].classList.add('active');
   document.querySelector("#tt").innerText = a;
-}); */
+});
 
 //키보드 방향키 조작 
 window.addEventListener('keydown', (e) => {
@@ -156,3 +157,45 @@ window.addEventListener('keydown', (e) => {
   indicatorBtn[a].classList.add('active');
   document.querySelector("#tt").innerText = a;
 });
+
+
+  
+let excuted = false;
+const charts = $('.chart');
+
+function chartAnimation() {
+
+
+  if (!excuted) {
+    charts.each(function () {
+      let item = $(this);
+      let title = item.find('h2');
+      let targetNum = title.attr('data-num');
+      let circle = item.find('circle');
+
+      $({ rate: 0 }).animate({ rate: targetNum }, {
+        duration: 1500,
+        progress: function () {
+          let now = this.rate;
+          // console.log(now);
+          let amount = 628.32 - (628.32 * now / 100);
+          title.text(Math.floor(now));
+          circle.css({ strokeDashoffset: amount });
+        }
+      })
+
+      /*
+      대상.animate({속성:값, 속성:값, }, 시간, 이징, 끝나면 할일);
+      title.animate({fontSize:'100px' }, 1000, 'swing', function(){});
+      title.animate({fontSize:'100px' }, {
+        duration:1000,
+        easing:'swing',
+        complete:function(){},
+        progress:function(){}
+      });
+      */
+    });
+    excuted = true;
+  }
+};
+

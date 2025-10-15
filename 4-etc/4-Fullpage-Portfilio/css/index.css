@@ -1,0 +1,249 @@
+@import url(common.css);
+
+/* Header */
+#header{
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.3);
+}
+#header h1{
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  font-size: 32px;
+}
+#header h1 img{
+  width: 80px;
+  filter: brightness(100);
+}
+#gnb{
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  display: flex;
+}
+#gnb li{
+  padding: 0 20px;
+  color: #fff;
+}
+#gnb li.active{
+  color: #000;
+  font-weight: bold;
+}
+/* #gnb li a:hover{color: #000;} */
+
+/* Page Number */
+#tt { 
+  position:fixed; 
+  z-index:1000; 
+  left:0; 
+  top:200px; 
+  background:red; 
+  padding:5px; 
+  font-size:100px; 
+  color:white; 
+}
+
+/* Dot Button */
+#dot{
+  position:fixed; 
+  z-index:1000; 
+  right:30px; 
+  top:50%;
+  transform: translateY(-50%);
+}
+#dot span{
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  /* background-color: #fff; */
+  border: 2px solid #fff;
+  margin: 20px 0;
+  cursor: pointer;
+  text-indent: -99999px;
+}
+#dot span.active{
+  display: block;
+  width: 7px;
+  height: 50px;
+  border-radius: 15px;
+  /* background-color: #fff; */
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* Container 공통*/
+#container{width: 100%;}
+.inner{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content{
+  /* border: 1px solid #000; */
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 100px;
+}
+h2.sec-tt{
+  font-size: 45px;
+  text-transform: uppercase;
+}
+
+
+/* About __________________________ */
+#about{
+  height: 100vh;
+  background-color: #7bb8e1;
+  overflow: hidden;
+}
+
+
+/* 하단곡선 SVG */
+.custom-shape-divider-bottom-1638201791 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+.custom-shape-divider-bottom-1638201791 svg {
+  position: relative;
+  display: block;
+  width: calc(143% + 1.3px);
+  height: 137px;
+}
+.custom-shape-divider-bottom-1638201791 .shape-fill {
+  fill: #FFFFFF;
+}
+
+
+
+
+
+#about .content{column-gap: 100px;}
+.user{text-align: center;}
+.user p:nth-of-type(1){
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info ul li{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  column-gap: 200px;
+}
+.info ul li:nth-child(odd) {
+  background: #F1F5F9;
+  border-radius: 10px;
+}
+.info ul li h3{font-size: 15px;}
+.info ul li p{font-size: 14px;}
+
+
+
+/* Skills __________________________ */
+#skills{
+  height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+#skills .inner{flex-direction: column;}
+
+/* chart */
+.charts .chart {
+  position: relative;
+}
+.charts .chart .chart-text{
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.charts .chart svg {
+  width: 220px;
+  height: 220px;
+}
+circle {
+  fill: #ebebeb;
+  stroke-width: 20px;
+  stroke-dasharray: 628.32px;
+  stroke-dashoffset: 628.32px;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-linecap: round;
+}
+.charts .chart:nth-child(1) circle {
+  stroke: #ffc114;
+  /* animation: lineAnimation forwards 0.5s; */
+}
+
+/*
+@keyframes lineAnimation {
+    from {
+        stroke-dashoffset: 628.32;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+*/
+
+.charts .chart:nth-child(2) circle {stroke: #ff5248;}
+.charts .chart:nth-child(3) circle {stroke: #19cdca;}
+.charts .chart:nth-child(4) circle {stroke: #4e88e1;}
+
+
+
+/* Works __________________________ */
+#works{
+  height: 100vh;
+  background-color: #3498db;
+  overflow: hidden;
+  position: relative;
+}
+
+.custom-shape-divider-top-1638201117 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1638201117 svg {
+    position: relative;
+    display: block;
+    width: calc(165% + 1.3px);
+    height: 85px;
+}
+
+.custom-shape-divider-top-1638201117 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/* Contact __________________________ */
+#contact{
+  height: 100vh;
+  background-color: #273b48;
+}
+
+
+/* #about h2, #about p{
+  opacity: 0;
+} */

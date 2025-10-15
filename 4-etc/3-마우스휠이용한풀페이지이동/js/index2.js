@@ -76,6 +76,8 @@ areas.forEach((area,index)=>{
     if ( a <= 0 ) { a = 0; }
     if ( a >= t ) { a = t; }
 
+    if (n === a) return; //n이 현재 섹션과 같으면(예: 끝에서 더 내림) 아무 것도 하지 않음
+
     activeReset();
     document.querySelector("#tt").innerText=a;//a값 출력
     window.scrollTo({left:ww*a, behavior:"smooth"});
