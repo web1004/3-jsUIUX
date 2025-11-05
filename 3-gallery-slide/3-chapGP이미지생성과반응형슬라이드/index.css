@@ -3,17 +3,21 @@
 li{list-style-type: none;}  
 a{text-decoration: none;color: inherit;}
 
+
 body{
   height: 100vh;
   display: grid;
   place-items: center;
   overflow: hidden;
 }
+
 main{
   position: relative;
   width: 100%;
   height: 100%;
 }
+
+/* SCSS문법중 네스팅과 엠퍼센드는 CSS3에서도 적용이 됨 */
 .item{
   width: 200px;
   height: 300px;
@@ -45,7 +49,7 @@ main{
     border-radius: 0;
     box-shadow: none;
     opacity: 1;
-  } 
+  }
   &:nth-child(3){left: 50%;}
   &:nth-child(4){left: calc(50% + 220px);}  /* 가로크기200+간격20 */
   &:nth-child(5){left: calc(50% + 440px);}
@@ -111,13 +115,12 @@ figcaption{
   transform: translateX(-50%);
   bottom: 2rem;
   z-index: 2;
-  /* user-select: none; */
   .btn{
     width: 40px;
     height: 40px;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.5);
     &:hover{
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
     }
   }
 }
@@ -153,7 +156,6 @@ figcaption{
     &:nth-child(8){left: calc(50% + 700px);opacity: 0;}
   }
 }
-
 
 /* 
 min() : 가장 작은값 선택, 최대 너비제한, 반응형제어

@@ -48,12 +48,6 @@ section{width: 800px;}
 .tabContents div{display: none;}
 .tabContents div.show{display: block;}
 
-/* .tabContents div{
-  opacity: 0;
-  transition: 0.35;
-}
-.tabContents div.show{opacity: 1;}
- */
 .tabContents div img{
   float: left;
   margin-right: 10px;

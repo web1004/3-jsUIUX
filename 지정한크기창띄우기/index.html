@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지정한크기창띄우기</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mockup.css">
+</head>
+<body>
+
+  <h1>(1)자바스크립트로 지정한 크기의 창 띄우기</h1>
+  <div class="btns1">
+    <button class="btn pc1"><a href="http://webd1004.pe.kr/test/res/index.html" target="_blank">PC</a></button>
+    <button class="btn tablet1"><a href="#none" onclick="MM_openBrWindow('http://webd1004.pe.kr/test/res/index.html','win','scrollbars=no,width=768px,height=940px,top=0,left=0')">Tablet</a></button>
+    <button class="btn mobile1"><a href="#none" onClick="MM_openBrWindow('http://webd1004.pe.kr/test/res/index.html','win','scrollbars=no,width=360px,height=640px,top=0,left=0')">Mobile</a></button>
+  </div>
+  <hr>
+
+  <h1>(2)기기별 화면 배경이미지로 모달창 띄우기</h1>
+  <div class="btns2">
+    <button class="btn pc2"><a href="http://webd1004.pe.kr/test/res/index.html" target="_blank">PC</a></button>
+    <button class="btn tablet2"><a href="#none">Tablet</a></button>
+    <!-- Tablet popup -->
+    <div class="pop">
+      <div class="pop1">
+        <iframe src="http://webd1004.pe.kr/test/res/index.html"></iframe>
+      </div>
+      <a href="#none" class="close"><img src="image/close.png" alt="close"></a>
+    </div>
+
+    <button class="btn mobile2"><a href="#none">Mobile</a></button>
+    <!-- Mobile popup -->
+    <div class="pop">
+      <div class="pop2">
+        <iframe src="http://webd1004.pe.kr/test/res/index.html"></iframe>
+      </div>
+      <a href="#none" class="close"><img src="image/close.png" alt="close"></a>
+    </div>
+  </div>
+  <hr>
+
+  <h1>(3)SCSS 모바일작업으로 모달창 띄우기</h1>
+  <div class="btns3">
+    <button class="btn pc3"><a href="http://webd1004.pe.kr/test/res/index.html" target="_blank">PC</a></button>
+    <button class="btn tablet3"><a href="#none">Tablet</a></button>
+    <button class="btn mobile3"><a href="#none">Mobile</a></button>
+    <!-- Mobile SCSS popup -->
+    <div class="pop">
+      <div class="pop3">
+        <!-- Mockup Start -->
+        <div class="mockup">
+          <div class="mobile-mockup">
+            <div class="home-btn">
+              <span></span>
+            </div>
+            <div class="camera">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="volume">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="power">
+              <span></span>
+            </div>
+            <div class="iframe-url">
+              <!-- Insert Image or iframe  -->
+              <iframe src="http://webd1004.pe.kr/test/shop/mobile/index.html"></iframe>
+            </div>
+          </div>
+        </div>
+        <!-- Mockup End -->
+      </div>
+      <a href="#none" class="close"><img src="image/close.png" alt="close"></a>
+    </div>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    //지정한 크기창 띄우는 함수생성
+    //theURL,winName,features : 연결주소, 창이름, 속성설정(크기,위치 등)
+    function MM_openBrWindow(theURL,winName,features){ 
+      window.open(theURL,winName,features);
+    };
+  </script>
+</body>
+</html>

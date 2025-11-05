@@ -1,0 +1,97 @@
+/* reset */
+*{padding: 0;margin: 0;box-sizing: border-box;}
+a{text-decoration: none;color: inherit;}
+
+.btns1, .btns2, .btns3{
+  text-align: center;
+}
+h1{
+  margin: 50px;
+  color: red;
+  text-align: center;
+}
+hr{margin: 50px 0;}
+
+.btn {
+  font-size: 18px;
+  width: 150px;
+  padding: 7px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.35s;
+}
+.pc1:hover, .pc2:hover, .pc3:hover {
+  background-color: royalblue;
+  color: #fff;
+  border-color: transparent;
+}
+.tablet1:hover, .tablet2:hover, .tablet3:hover {
+  background-color: green;
+  color: #fff;
+  border-color: transparent;
+}
+.mobile1:hover, .mobile2:hover, .mobile3:hover {
+  background-color: crimson;
+  color: #fff;
+  border-color: transparent;
+}
+
+/* (2)~(3) */
+.pop{  /*검정배경*/
+  display:none; 
+	position:fixed; 
+	left:0; 
+	top:0;
+	width:100%; 
+	height:100%; 
+	background:rgba(0,0,0,0.8); 
+	z-index:99999;
+	overflow:hidden;
+}
+.close{ 
+	position:fixed; 
+	right:30px; 
+	top:30px; 
+}
+
+.pop1{   /*태블릿이미지 배경*/
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width:800px; 
+	height:875px; 
+	background:url(../image/tablet_view.png) no-repeat center center; 
+}
+.pop1 iframe{
+  margin-top:50px;
+  border: 0;
+  width: 768px;
+  height: 800px;
+}
+
+.pop2{   /*모바일이미지 배경*/
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width:425px; 
+	height:727px; 
+	background:url(../image/mobile_view.png) no-repeat center center; 
+}
+.pop2 iframe{
+  margin-top:70px;
+  border: 0;
+  width: 377px;
+  height: 615px;
+}
+
+/* SCSS Mobile Mockup */
+.pop3{
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

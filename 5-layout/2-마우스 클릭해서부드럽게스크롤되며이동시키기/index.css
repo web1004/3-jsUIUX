@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+/* Reset */
+*{margin: 0;padding: 0;box-sizing: border-box;}
+li{list-style-type: none;}  
+a{text-decoration: none;color: inherit;}
+h1, h2, h3, h4, h5, h6{margin-top: 0;}
+
+body{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #333;
+}
+
+.menu{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 15px 15px;
+  padding: 10px 20px;
+  background-color: #000;
+}
+.menu span{
+  cursor: pointer; 
+  margin: 10px; 
+  color: #fff;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+.content h1{
+  font-size: 5em;
+  font-weight: normal;
+}
+.content:nth-child(1) {background-color: crimson;}
+.content:nth-child(2) {background-color: yellowgreen;}
+.content:nth-child(3) {background-color: royalblue;}
+
+/* 메뉴 현재위치 활성화 */
+.menu span.active{
+  font-weight: bold;
+  color: gold;
+}

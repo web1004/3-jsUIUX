@@ -7,14 +7,13 @@ horizontalMenus.forEach((menu) => menu.addEventListener("click", (e) =>horizonta
 verticalMenus.forEach((menu) =>menu.addEventListener("click", (e) => verticalIndicator(e)));
 
 function horizontalIndicator(e) {
-  //console.log(e.currentTarget)
-  horizontalBar.style.left = e.currentTarget.offsetLeft + "px";
+  horizontalBar.style.left = e.currentTarget.offsetLeft + 'px';
+  horizontalBar.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight +'px';
   horizontalBar.style.width = e.currentTarget.offsetWidth + "px";
-  horizontalBar.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
 };
 
 function verticalIndicator(e) {
   verticalBar.style.left = e.currentTarget.offsetLeft + "px";
-  verticalBar.style.width = e.currentTarget.offsetWidth + "px";
   verticalBar.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+  verticalBar.style.width = e.currentTarget.offsetWidth + "px";
 }
