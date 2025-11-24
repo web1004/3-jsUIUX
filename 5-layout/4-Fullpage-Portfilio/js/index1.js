@@ -7,9 +7,9 @@ let wh = window.innerHeight;
 */
 /* if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
-} */
+}
 
-if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; */
 
 //브라우저창 크기 새로고침
 window.addEventListener('resize', () => {
@@ -206,8 +206,8 @@ function resetCharts(){
   indicatorBtn[0].classList.add('active');
 }); */
 
-//window.addEventListener('load', () => window.scrollTo(0, 0));
-window.addEventListener('load', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+window.addEventListener('load', () => window.scrollTo(0, 0));
+//window.addEventListener('load', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* 
 대상.animate({속성:값, 속성:값, }, 시간, 이징, 끝나면 할일);
