@@ -1,0 +1,197 @@
+@charset "utf-8";
+
+/* =========================
+  RESET
+========================= */
+*{margin:0;padding:0; box-sizing:border-box;}
+html,body{width:100%; height:100%;}
+img{max-width:100%; display:block;}
+a{text-decoration:none;color:inherit;}
+li{list-style:none;}
+
+body{
+  background:#000;
+  overflow-x:hidden;
+}
+
+#wrap{
+  position:relative;
+  background:#000;
+}
+
+/* 공통 타이포 */
+h2{
+  color:#fff;
+  font-size:90px;
+  letter-spacing:0.02em;
+}
+
+/* =========================
+  SECTION 1 : intro
+========================= */
+.intro-text{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+}
+
+/* =========================
+  SECTION 2 : scroll stage
+  - 느리게 진행: height 크게 (속도 체감 대부분 여기서 결정)
+========================= */
+.center-text{
+  position:relative;
+  height:450vh;
+  background:#000;
+}
+
+/* sticky 영역 (이미지 사라져도 흰 배경 유지) */
+.center-text .sticky-content{
+  position:sticky;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  background:#fff; /* ✅ last-txt 때도 흰색 */
+}
+
+/* =========================
+  LAYERS
+  - 텍스트(30) > 마스크(20) > 이미지(10)
+========================= */
+
+/* 텍스트 공통 */
+.center-text .first-txt,
+.center-text .last-txt{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:30;
+  pointer-events:none;
+}
+
+/* last 텍스트는 흰 배경 위 검정 글씨 */
+.center-text .last-txt h2{ color:#000; }
+
+/* 배경 이미지 */
+.center-text .bg-img{
+  position:absolute;
+  inset:0;
+  z-index:10;
+  background:url(image/center-bg.jpg) no-repeat center center;
+  background-size:cover;
+  will-change: transform, opacity;
+}
+
+/* 좌/우 마스크(문) */
+.center-text .left-mask,
+.center-text .right-mask{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background:#000;
+  z-index:20;
+  will-change: transform;
+  transition: transform 1.8s;
+}
+
+/* ✅ 문 “있음”이 보이도록 중앙 경계선(원하면 삭제 가능) */
+.center-text .left-mask{ 
+  left:0; 
+  /* box-shadow: inset -1px 0 0 rgba(255,255,255,.18); */
+}
+.center-text .right-mask{ 
+  right:0; 
+  /* box-shadow: inset 1px 0 0 rgba(255,255,255,.18); */
+}
+
+/* =========================
+  DEFAULT STATE (active 전)
+========================= */
+
+/* 1) first 텍스트: 보임 */
+.center-text .first-txt{
+  opacity:1;
+  transition: opacity 0.9s ease;
+}
+
+/* 2) last 텍스트: 숨김 */
+.center-text .last-txt{
+  opacity:0;
+  transition: opacity 0.9s ease;
+}
+
+/* 3) 문: 닫힘(기본) */
+.center-text .left-mask{ transform:translateX(0%); }
+.center-text .right-mask{ transform:translateX(0%); }
+
+/* 4) 이미지: 문 뒤에 “항상 깔려있게”
+  - 문이 닫혀있을 땐 안 보이고(가려짐),
+  - 문이 열리면 드러나면서 “문 열림”이 확 보임 */
+.center-text .bg-img{
+  opacity:1;
+  transform:scale(1.35); /* 줌아웃 상태(큰 상태) */
+  transition: transform 2.2s ease, opacity 1.2s ease;
+}
+
+/* =========================
+  ACTIVE STATE
+  순서:
+  first 사라짐 -> 문 열림(유지) -> 이미지 줌인 -> 이미지 사라짐 -> last 등장
+========================= */
+
+/* (2) first 텍스트 사라짐 */
+.center-text.active .first-txt{
+  opacity:0;
+}
+
+/* (3) 문 열림 (✅ active 동안 계속 열림 유지, 절대 다시 닫는 규칙 없음) */
+.center-text.active .left-mask{
+  transform:translateX(-100%);
+}
+.center-text.active .right-mask{
+  transform:translateX(100%);
+}
+
+/* (3) 이미지 줌인(큰->원래) */
+.center-text.active .bg-img{
+  transform:scale(1);
+}
+
+/* (4) 이미지 사라짐(잠깐 보여준 뒤 페이드아웃) */
+.center-text.active .bg-img{
+  animation: imgOut 1.4s 2.6s forwards;
+}
+@keyframes imgOut{
+  to{ opacity:0; }
+}
+
+/* (5) last 텍스트 등장(이미지 사라진 다음) */
+.center-text.active .last-txt{
+  opacity:1;
+  transition-delay: 3.3s;
+}
+
+/* =========================
+  SECTION 3 : end
+========================= */
+.end-text{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+}
+
+/* =========================
+  RESPONSIVE
+========================= */
+@media (max-width: 768px){
+  h2{ font-size:56px; }
+}

@@ -1,0 +1,375 @@
+@charset "utf-8"; 
+
+/* reset */
+*{margin:0;padding:0;	box-sizing: border-box;}
+html,body{width:100%; height:100%;}
+li{ list-style-type:none;}
+a{text-decoration:none;color:inherit;} 
+
+
+#wrap{
+  position: relative;
+  overflow: hidden;
+}
+
+.sec1{
+  position:relative; 
+  height:100vh; 
+  background-color: #222;
+  display: flex;
+  padding-left: 200px;
+  align-items: center;
+}
+
+nav{
+  position: relative;
+  z-index: 30;
+}
+nav .menu{
+  line-height: 1;
+}
+nav .menu li a{
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  font-size: 140px;
+  color: #fff;
+  font-weight: 900;
+  z-index: 0;  /* a가 쌓임 맥락의 기준이 됨(안쓸경우는 a가 기준이 아니라 배경밑으로 깔리게 되어서 노랑색선이 보이지 않는 문제 발생) */
+  transition: 0.5s; 
+}
+nav .menu li a .txt{
+  position:relative; 
+  z-index:20; 
+  display: block; 
+  animation:text-opacity 2s 1s 1 cubic-bezier(0.68,-0.03, 0.58, 1) both; 
+  animation-play-state: paused;
+}
+.sec1.active nav .menu li a .txt{animation-play-state: running}
+
+@keyframes text-opacity {
+	0%{
+		opacity: 0;
+		color:#b81178;
+		transform:translateX(-50%);
+	}
+	100%{
+		opacity: 1;
+		color:#fff;
+		transform:translateX(0%);
+	}
+}
+
+
+
+nav .menu li a .mask2{
+  position: absolute;
+  left:0; 
+  bottom:0; 
+  z-index:-1; 
+  width:0; 
+  height:30%; 
+  background-color: gold;
+  transition: 0.5s;
+}
+
+nav .menu li a:hover{transform: translateX(-10px);}
+nav .menu li a:hover .mask2{width: 100%;}
+
+nav .menu li a .mask1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  animation: text-mask 2s 1s 1 cubic-bezier(0.68,-0.03, 0.58, 1) both;
+  animation-play-state: paused;
+}
+.sec1.active nav .menu li a .mask1{animation-play-state: running}
+
+@keyframes text-mask{
+  0%{
+    width: 0%;
+    transform: translateX(0%);
+  }
+  50%{
+    width: 100%;
+    transform: translateX(0%);
+  }
+  100%{
+    width: 100%;
+    transform: translateX(100%);
+  }
+}
+
+.sec1 .bg-circle{
+  position: absolute;
+  top: 0;
+  right: -20%;
+  width: 1000px;
+  height: 1000px;
+  background: url(image/circle.png) no-repeat center;
+  background-size: 60%;
+  opacity: 0.5;
+  transform-origin: center center;
+  animation: circle-rotate 40s infinite linear;
+  animation-play-state: paused;
+}
+.sec1.active .bg-circle{animation-play-state: running}
+
+@keyframes circle-rotate{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+
+
+/* sec2 - 날짜카운트 */
+.sec2{
+  overflow:hidden;
+  position:relative;
+  height:100vh;
+  background:#000;
+  text-align:center;
+  color:#fff;
+}
+
+.sec2 .today{
+  position:relative;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap: 22px;
+}
+
+/* 상단 TODAY 타이틀 */
+.sec2 .date-title{
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  opacity: 0.85;
+}
+
+/* 큰 숫자(테두리만) */
+.sec2 .date-count{
+  font-size: clamp(64px, 10vw, 170px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 3px #fff;
+  text-shadow: 0 0 0 rgba(0,0,0,0); /* 안정화용 */
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 700ms ease, opacity 700ms ease;
+  will-change: transform, opacity;
+}
+
+/* sec2 들어오면 자연스럽게 등장 */
+.sec2.active .date-count{
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+
+.sec3{
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
+}
+.sec3 .left-text{
+  width: 60%;
+  color: #fff;
+  font-size: 26px;
+  text-align: right;
+  opacity:0; 
+  transform:translateX(-150px);
+  transition: 1s;
+}
+.sec3 .right-img{
+  width: 30%;
+  position: relative;
+}
+.sec3 .right-img:after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transition: 1s;
+}
+.sec3 .right-img img{width: 100%;}
+
+.sec3.active .left-text{
+  opacity: 1;
+  transform:translateX(0px);
+}
+.sec3.active .right-img:after{
+  height: 0;
+}
+
+
+/* sec4 - 텍스트마스크 */
+.sec4{
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sec4 .text-mask{
+  font-size: 150px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+}
+.sec4 .text-mask .txt-box{
+  display: flex;
+}
+.sec4 .text-mask .txt-box .left-txt{
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+}
+.sec4 .text-mask .txt-box .left-txt p{
+  color: #fff;
+  width: 200%;
+}
+.sec4 .text-mask .txt-box .left-txt p span{
+  display: inline-block;
+  white-space: nowrap;
+  animation: text-bgmask 2s 1 both ease-in-out;
+  animation-play-state: paused;
+}
+.sec4.active .text-mask .txt-box .left-txt p span{
+  animation-play-state: running;
+}
+
+.sec4 .text-mask .txt-box .right-txt p span{
+  display: inline-block;
+  white-space: nowrap;
+  animation: text-bgmask 2s 1 both ease-in-out;
+  animation-play-state: paused;
+}
+.sec4.active .text-mask .txt-box .right-txt p span{
+  animation-play-state: running;
+}
+
+.sec4 .text-mask .txt-box.tbox2 .right-txt p span{
+  animation-delay: 0.3s;
+}
+.sec4 .text-mask .txt-box.tbox3 .right-txt p span{
+  animation-delay: 0.6s;
+}
+
+
+@keyframes text-bgmask{
+  0%{transform: translateX(-50%);}
+  50%{transform: translateX(50%);}
+  100%{transform: translateX(0%);}
+}
+
+.sec4 .text-mask .txt-box .right-txt{
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+}
+.sec4 .text-mask .txt-box .right-txt p{
+  width: 200%;
+  color: #05b5fa;
+  margin-left: -100%;
+}
+.sec4 .text-mask .txt-box.tbox2 .left-txt p{color: #05b5fa;}
+.sec4 .text-mask .txt-box.tbox2 .right-txt p{color: #fff;}
+
+
+
+/* sec5 - 모바일배경 바꾸기 */
+.sec5{
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  background-color: #222;
+}
+.sec5 .sec5-back{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sec5 .sec5-back h3{
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.sec5 .sec5-back .mo-device{
+  position: relative;
+  z-index: 600;
+}
+.sec5 .sec5-back .mo-device img{
+  width: 300px;
+}
+
+.sec5 .sec5-back .mobg-change{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+}
+.sec5 .sec5-back .mobg-change.bg1{
+  z-index: 400;
+  background-color: #000;
+  transition: 0.5s 0.2s;
+}
+.sec5.active .sec5-back .mobg-change.bg1{width: 0;}
+
+.sec5 .sec5-back .mobg-change.bg2{
+  z-index: 300;
+  background-color: #e47474;
+  transition: 0.5s 0.7s;
+}
+.sec5.active .sec5-back .mobg-change.bg2{width: 0;}
+
+.sec5 .sec5-back .mobg-change.bg3{
+  z-index: 200;
+  background-color: #5883f0;
+  transition: 0.5s 1.2s;
+}
+.sec5.active .sec5-back .mobg-change.bg3{width: 0;}
+
+.sec5 .sec5-back .mobg-change.bg4{
+  z-index: 100;
+  background-color: #cabdbd;
+}
+
+
+
+/* Footer */
+footer{
+  background-color: #000;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p{
+  color: #fff;
+  font-size: 36px;
+}

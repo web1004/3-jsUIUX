@@ -1,0 +1,75 @@
+@charset "utf-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* reset */
+*{margin:0;padding:0;	box-sizing: border-box;}
+html,body{width:100%; height:100%;}
+li{ list-style-type:none;}
+a{text-decoration:none;color:inherit;} 
+
+
+.container h2{
+  font-family: 'Raleway', sans-serif;
+  text-transform: capitalize;
+  font-size: 36px;
+  text-align: center;
+  margin: 100px 0 100px;
+}
+.port-list{
+  width: 1200px;
+  margin: auto;
+}
+.port-list ul{
+  width: inherit;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+.port-list ul li{
+  display: none; /* 전체목록을 안보이게 하고 JS에서 3개씩 보이게 함 */
+  width: 380px;
+  height: 320px;
+  margin-bottom: 30px;
+  box-shadow:0px 0px 7px #999;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* fade-in (jQuery fadeIn 느낌) */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 350ms ease, transform 350ms ease;
+  will-change: opacity, transform;
+}
+
+.port-list ul li.is-show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 모션 줄이기 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .port-list ul li{ transition: none; }
+}
+
+.port-list .thums{
+  width: 100%;
+  height: 250px;
+}
+.port-list .thums img{
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+.port-list .desc{
+  padding:15px 0 15px 10px;
+  color:#119ec0;
+}
+
+footer{
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  background-color: #ccc;
+  text-align: center;
+}

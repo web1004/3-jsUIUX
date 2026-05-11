@@ -1,0 +1,230 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+/* reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
+li { list-style-type: none; }
+a { text-decoration: none; color: inherit; }
+
+header{
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  z-index: 10;
+}
+
+nav{
+  position: fixed;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+nav .menu li{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 900;
+  font-size: 150px;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  line-height: 1;
+  outline-width: 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav .menu li:nth-child(2) a,
+nav .menu li:nth-child(3) a{
+  color: transparent; /* 글자 내부는 비우기 */
+  -webkit-text-fill-color: transparent; /* 사파리/크롬 보강 */
+  text-shadow:
+    2px  0   0 #f1f1f1,
+   -2px  0   0 #f1f1f1,
+    0    2px 0 #f1f1f1,
+    0   -2px 0 #f1f1f1,
+    2px  2px 0 #f1f1f1,
+   -2px  2px 0 #f1f1f1,
+    2px -2px 0 #f1f1f1,
+   -2px -2px 0 #f1f1f1;
+}
+
+.sec1{
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.sec1 h2{
+  font-size: 55px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-right: 20px;
+}
+.sec1 .video-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.sec1 .video-bg video{
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+
+/* =========================
+  sec2 : 2(왼쪽) + 1(오른쪽) 콜라주 배치
+========================= */
+.sec2{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 60px; /* 상단은 header 고정 고려 */
+  background-color: rgb(83, 138, 220);
+}
+
+.sec2 h2, .sec3 h2{
+  color: #fff;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* 3장 배치 그리드 */
+.sec2 ul{
+  width: min(900px, 100%);
+  margin-left: auto; /* nav이 왼쪽이라 오른쪽으로 배치 느낌 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+/* =========================
+  sec2: 순차 등장 애니메이션
+========================= */
+.sec2 ul li{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+/* 보여질 때 */
+.sec2 ul li.is-show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 배치 */
+.sec2 ul li:nth-child(2){ grid-area: span 2 / span 1; }
+
+/* 이미지 꽉 채우기(레이아웃용) */
+.sec2 ul li img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================
+  sec3 : grid 콜라주 배치
+========================= */
+.sec3{
+  min-height: 100vh;
+  padding: 140px 60px 100px;
+  background-color: rgb(169, 122, 195);
+}
+
+.sec3 ul{
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 열 12칸 */
+  grid-template-rows: repeat(8, 80px);    /* 행 8줄 */
+  gap: 20px;
+}
+
+/* ✅ (핵심) 통째로 이동: li 마스크 제거 + li가 transform 대상 */
+.sec3 ul li{
+  overflow: visible;            /* ← 기존 hidden 제거 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  position: relative;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+}
+
+.sec3 ul li img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== 배치 ===== */
+/* 
+grid-column: 시작열 / span N;
+시작열: 몇 번째 세로 칸에서 시작할지
+span N: 가로로 N칸을 차지
+
+grid-row: 시작행 / span N;
+시작행: 몇 번째 가로 줄에서 시작할지
+span N: 세로로 N줄을 차지
+
+*/
+.sec3 ul li:nth-child(1){
+  grid-column: 2 / span 3;
+  grid-row: 1 / span 2;
+}
+.sec3 ul li:nth-child(2){
+  grid-column: 5 / span 5;
+  grid-row: 1 / span 2;
+}
+.sec3 ul li:nth-child(3){
+  grid-column: 10 / span 2;
+  grid-row: 1 / span 3;
+}
+.sec3 ul li:nth-child(4){
+  grid-column: 1 / span 5;
+  grid-row: 3 / span 3;
+}
+.sec3 ul li:nth-child(5){
+  grid-column: 6 / span 3;
+  grid-row: 3 / span 2;
+}
+.sec3 ul li:nth-child(6){
+  grid-column: 9 / span 4;
+  grid-row: 3 / span 6;
+}
+.sec3 ul li:nth-child(7){
+  grid-column: 2 / span 2;
+  grid-row: 6 / span 2;
+}
+.sec3 ul li:nth-child(8){
+  grid-column: 4 / span 5;
+  grid-row: 6 / span 3;
+}
+
+footer{
+  background-color: #000;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p{
+  color: #fff;
+  font-size: 36px;
+}
