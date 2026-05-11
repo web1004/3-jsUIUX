@@ -10,13 +10,14 @@ let B = A.clientHeight;  //padding까지의 높이
 변수명 subMenuHeight에 subMenu 중에서 가장 높이가 큰 요소의 높이를 구해서 저장
 */
 
-/* 각각의 높이를 찾아서 제일 큰값으로 서브메뉴의 높이로
-subMenuHeight = subMenu[0].offsetHeight;
-subMenuHeight = subMenu[1].offsetHeight;
-subMenuHeight = subMenu[2].offsetHeight;
-subMenuHeight = subMenu[3].offsetHeight;
-subMenuHeight = subMenu[4].offsetHeight;
- */
+//subMenuHeight = subMenu[0].offsetHeight;
+// subMenuHeight = subMenu[1].offsetHeight;
+// subMenuHeight = subMenu[2].offsetHeight;
+// subMenuHeight = subMenu[3].offsetHeight;
+// subMenuHeight = subMenu[4].offsetHeight;
+
+// console.log(subMenu);
+// console.log(subMenuHeight);
 
 /* 0번째 높이를 구했을때 초기값보다 0보다 크기까 그 다음 실행
   1번째 높이가 200인데 100보다 크니까 실행이 되고 200이 저장 */
@@ -26,7 +27,6 @@ subMenu.forEach((eh) => {
   };
 });
 
-//console.log(subMenuHeight);
 
 /* 
 mainMenuList에 마우스를 올리면 header의 높이를 headerHeight 와 subMenuHeight를 더한 최종 크기로 변경
@@ -34,10 +34,12 @@ mainMenuList에 마우스를 나가면 headerHeight로 변경
 */
 mainMenuList.forEach((sub) => {
   sub.addEventListener('mouseenter', function(){
-    header.style.height = headerHeight + subMenuHeight + 'px';
+    //header.style.height = headerHeight + subMenuHeight + 'px';
+    header.style.height = `${headerHeight+subMenuHeight}px`;
   });
   sub.addEventListener('mouseleave', function(){
-    header.style.height = headerHeight + 'px';
+    //header.style.height = headerHeight + 'px';
+    header.style.height = `${headerHeight}px`;
   });
 });
 
