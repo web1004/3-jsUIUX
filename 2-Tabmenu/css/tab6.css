@@ -1,0 +1,90 @@
+@import url(reset.css);
+
+#tabmenu{
+  width:960px;
+  height:500px;
+  margin:30px auto;
+  padding:30px;
+  background:#f3f6f7;
+  position: relative;
+  display: flex;
+}
+.tab-header{
+  width:200px;
+  position:relative;
+}
+.tab li{
+  width:160px; 
+  height:70px; /*js에서 탭메뉴 움직이는 거리*/
+  box-sizing:border-box;
+  float:left;
+  border-bottom:1px solid #ccc;
+  color:#000;
+  font-size:17px;
+  line-height:70px;
+  text-align:center;
+  letter-spacing:1px; 
+  position:relative;
+  z-index:100;  
+}
+.tab li:last-of-type{border-bottom:1px solid #ccc;}
+.tab li.active{color:#fff;} /*1번째 선택된 글자색 */
+.tab-highlight{  /*현재 선택된 탭메뉴->옆으로 이동하는 박스*/
+  background:#000; 
+  width: 160px;
+  height:70px; 
+  position:absolute;
+  width:160px;
+  left:0px;
+  top:0px;          
+  transition: top 0.35s ease;
+}
+.tab-highlight:after{   /*삼각형모양*/
+  content:"";
+  position:absolute;
+  right:-12px;
+  top:35%;
+  margin-left:-17px;  
+  z-index:10;
+  width:0;
+  height:0;
+  border-top: 12px solid transparent;
+  border-left: 12px solid #000;
+  border-bottom: 10px solid transparent;
+}
+
+.tab-contents div{
+  margin-top:40px;
+  width:700px;
+  height:430px;
+  padding:20px;
+  display:none;   
+}
+.tab-contents div.active{display:block}
+
+.tab-contents #tab1{background-color:#12578f;}
+.tab-contents #tab2{background-color:#64416e;}
+.tab-contents #tab3{background-color:#397741;}
+.tab-contents #tab4{background-color:#8f7341;}
+
+.title {
+  font-size:50px;
+  color: #fff;
+  font-weight:normal;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+.description {
+  color: #fff;
+  font-size:14px;
+  line-height:22px;
+}
+.read-more{
+  color: #fff;
+  font-size:14px;
+  text-transform:uppercase;
+  display:inline-block;
+  padding:3px 16px;
+  margin-top:24px;
+  border:1px solid #fff;
+}

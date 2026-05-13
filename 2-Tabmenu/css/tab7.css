@@ -1,0 +1,91 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+	background:#fbf8ef;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+#tabmenu{
+	width:1100px;
+	background:#fff;
+	margin:auto;
+}
+#tabmenu h2{
+	font-family: 'Exo', sans-serif;
+	font-weight: 400;
+	text-align:center;
+	font-size:60px;
+	color:#7c1739;
+	text-transform: uppercase;
+	position: relative;
+	width: 300px;
+	margin: 20px auto;
+}
+#tabmenu h2:before, #tabmenu h2:after{
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: inline-block;
+	width: 43px;
+	height: 29px;
+}
+#tabmenu h2:before{
+	right: 100%;
+	background: url(../image/il.png) no-repeat;
+}
+#tabmenu h2:after{
+	left: 100%;
+	background: url(../image/ir.png) no-repeat;
+}
+.tab{
+	/* border: 1px solid #000; */
+	display: flex;
+	justify-content: center;
+}
+.tab li{
+	width:111px;
+	height:110px;
+	cursor: pointer;
+}
+.tab li.active{  /* JQuery에서 active클래스 생성및 삭제(이미지변경) */
+	display:block;
+	width:111px;
+	height:110px;
+	background:url(../image/tabon0.png) no-repeat;
+	text-indent:-9999px;
+}
+.tabContents{
+	clear:both;  
+	margin-top:100px;
+	width:900px;
+	height:400px;
+	margin:100px auto;
+	/*background:pink;*/
+}
+.tabContents div ul{display:flex;} 
+.tabContents div ul li img{
+	width:270px;
+	height:270px;
+	border-radius:50%;
+	margin-right:30px;
+}
+.tabContents h3{
+	width:270px;
+	font-size:16px;
+	color:#b69048;
+	font-weight:bold;
+	text-align:center;
+	margin:10px 0;
+}
+.tabContents p{
+	width:200px;
+	color:#666;
+	margin:auto;
+}
+.tabContents div{display: none;}
+.tabContents div.active{display: block;}  /* JQuery에서 active클래스 생성및 삭제 */

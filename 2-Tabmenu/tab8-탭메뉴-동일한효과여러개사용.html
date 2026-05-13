@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>tab8-탭메뉴-동일한효과여러개사용</title>
+	<link rel="stylesheet" href="css/tab8.css">
+</head>
+
+<body>
+	<div id="tabmenu">
+		<h3>제주신라호텔 객실에서<br>세계 명문 호텔에서만 느낄 수 있는 수준 높은 트랜드를 만나보세요.</h3>
+		<!--탭메뉴-->
+		<ul class="tab">
+			<li data-alt="tab1" class="active">Standard</li>
+			<li data-alt="tab2">Premier</li>
+			<li data-alt="tab3">Sweet</li>
+		</ul>
+
+		<!--탭메뉴 클릭시 바뀌는 하단내용-->
+		<ul class="panel">
+			<li id="tab1" class="active">
+				<div class="gallery gallery1">
+					<ul class="largeImg">
+						<li><img src="image/s1.jpg" alt="image0"></li>
+						<li><img src="image/s2.jpg" alt="image1"></li>
+						<li><img src="image/s3.jpg" alt="image2"></li>
+						<li><img src="image/s4.jpg" alt="image2"></li>
+					</ul>
+					<ul class="thumbs">
+						<li><a href="#none"><img src="image/s1.jpg" alt="image0"></a></li>
+						<li><a href="#none"><img src="image/s2.jpg" alt="image1"></a></li>
+						<li><a href="#none"><img src="image/s3.jpg" alt="image2"></a></li>
+						<li><a href="#none"><img src="image/s4.jpg" alt="image3"></a></li>
+					</ul>
+				</div>
+				<div class="content">
+					<h4>제주의 푸른 하늘과 안락한 산의 풍경이 펼쳐져 있는 <span>스탠다드 룸</span></h4>
+					<p>스튜디오 타입의 파스텔톤 객실에 휴식을 취할 수 있는 테이블과 체어,<br> 그리고 라탄 타입의 아늑한 체어를 완비한 제주신라의 가장 기본적인
+						룸입니다.</p>
+					<div class="btn"><a href="#">예약하기</a></div>
+				</div>
+			</li>
+			<li id="tab2">
+				<div class="gallery gallery2">
+					<ul class="largeImg">
+						<li><img src="image/p1.jpg" alt="image0"></li>
+						<li><img src="image/p2.jpg" alt="image1"></li>
+						<li><img src="image/p3.jpg" alt="image2"></li>
+						<li><img src="image/p4.jpg" alt="image2"></li>
+					</ul>
+					<ul class="thumbs">
+						<li><a href="#none"><img src="image/p1.jpg" alt="image0"></a></li>
+						<li><a href="#none"><img src="image/p2.jpg" alt="image1"></a></li>
+						<li><a href="#none"><img src="image/p3.jpg" alt="image2"></a></li>
+						<li><a href="#none"><img src="image/p4.jpg" alt="image3"></a></li>
+					</ul>
+				</div>
+				<div class="content">
+					<h4>고급스러운 별장의 게스트룸과 같은 매력을 지닌<span>프리미어룸</span></h4>
+					<p>스튜디오 타입 객실에 블루 패턴의 카페트와 화이트 패브릭 소파가 세련된 느낌을 자아내며,<br> 휴식을 취할 수 있는 다이닝 테이블과 체어를
+						완비한 제주신라의 객실로<br>5~8층에 위치해 제주의 멋진 풍광을 감상할 수 있는 객실입니다.<br>이국적인 리조트 느낌의 호사한 인테리어로
+						스탠다드 룸보다 넓은 객실입니다.</p>
+					<div class="btn"><a href="#">예약하기</a></div>
+				</div>
+			</li>
+			<li id="tab3">
+				<!--gallery클래스는 css에서 공통으로 스타일을 적용하기 위한것이고,
+				gallery1,2,3클래스는 JQuery에서 각각의 갤러리를 구분하기 위함-->
+				<div class="gallery gallery3">
+					<ul class="largeImg">
+						<li><img src="image/t1.jpg" alt="image0"></li>
+						<li><img src="image/t2.jpg" alt="image1"></li>
+						<li><img src="image/t3.jpg" alt="image2"></li>
+						<li><img src="image/t4.jpg" alt="image2"></li>
+					</ul>
+					<ul class="thumbs">
+						<li class="active"><a href="#none"><img src="image/t1.jpg" alt="image0"></a></li>
+						<li><a href="#none"><img src="image/t2.jpg" alt="image1"></a></li>
+						<li><a href="#none"><img src="image/t3.jpg" alt="image2"></a></li>
+						<li><a href="#none"><img src="image/t4.jpg" alt="image3"></a></li>
+					</ul>
+				</div>
+				<div class="content">
+					<h4>VIP를 위한 제주신라호텔 최고의 객실,<br><span>프레지덴셜 스위트</span></h4>
+					<p>거실의 고급스러운 소파와 벽난로, 홈 바, 여유롭게 돌아가는 천장의 실링팬이 <br>럭셔리 리조트의 여유로움을 느끼게 합니다.<br>바다 전망이
+						넓게 펼쳐지는 침실에서 제주의 일몰을 감상할 수 있으며,<br> 침대의 캐노피 장식이 편안하고 아늑한 분위기를 자아냅니다.<br>8~10인이
+						함께 식사를 즐길 수 있는 다이닝 룸은 화이트 톤의 밝은 분위기와 <br>천장의 화려한 샹들리에가 유럽의 고풍스러운 저택을 떠올리게
+						합니다.<br>
+						환상적인 제주의 자연 조망을 감상할 수 있는 널찍한 야외 발코니는 칵테일 파티에 더없이 좋은 장소입니다.</p>
+					<div class="btn"><a href="#">예약하기</a></div>
+				</div>
+			</li>
+		</ul>
+
+	</div>
+
+
+	<script src="js/tab8-vanilla.js"></script>
+</body>
+
+</html>

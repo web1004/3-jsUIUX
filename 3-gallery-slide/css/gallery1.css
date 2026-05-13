@@ -1,0 +1,36 @@
+@import url(reset.css);
+
+body {
+	background: #999;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#gallery {
+	width: 700px;
+	padding: 25px;
+	background-color: #eee;
+	box-shadow: 0 0 30px rgb(65, 66, 64);
+}
+#largeImg {
+	width: 650px;
+	height: 400px;
+	border: solid 1px #ccc;
+	margin-bottom: 20px;
+}
+#largeImg img {
+	width: inherit;
+	height: inherit;
+	object-fit: cover;
+}
+
+
+.thumbs img {
+	width: 80px;
+	height: 70px;
+	opacity: 0.6;
+}
+.thumbs img.active {opacity: 1;}  /* js에서 썸네일 클릭시에 active클래스 이동 */
+

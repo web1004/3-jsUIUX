@@ -1,0 +1,110 @@
+@import url(reset.css);
+
+h2{
+  text-align:center;
+  margin:50px 0 20px;
+  text-transform:capitalize;
+  font-size:45px;
+  color:#333;
+}
+
+#gallery{
+  width:1000px;
+  height:630px;
+  position:relative;
+  margin:auto;
+}
+
+#gallery img{display:block;}
+
+/* =========================
+   큰 이미지(슬라이드) - 겹쳐두고 opacity로 전환
+   ========================= */
+.largeImg li{
+  width:1000px;
+  height:630px;
+  position:absolute;
+  top:0;
+  left:0;
+
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 300ms ease;
+}
+
+.largeImg li.is-active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.largeImg li img{
+  width:inherit;
+  height:inherit;
+  object-fit:cover;
+}
+
+/* =========================
+  썸네일
+   ========================= */
+.thumbs{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  column-gap:10px;
+}
+
+.thumbs li{
+  opacity:0.7;
+  border:3px solid #fff;
+  cursor:pointer;
+}
+
+.thumbs li.active{
+  opacity:1;
+}
+
+/* 기존 HTML이 a>img 구조라 유지 */
+.thumbs li a img{
+  width:75px;
+  height:57px;
+}
+
+/* =========================
+  좌우버튼
+   ========================= */
+.left_btn, .right_btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+.left_btn{left:0;}
+.right_btn{right:0;}
+
+/* =========================
+  이미지별 텍스트 - 슬라이드와 동일하게 opacity 전환
+   ========================= */
+.imgText li{
+  position:absolute;
+  top:50px;
+  left:0;
+
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 300ms ease;
+}
+
+.imgText li.is-active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.imgText li strong{
+  padding:0 50px 0 20px;
+  font-size:42px;
+  color:#fff;
+  text-transform:capitalize;
+  font-family:"Raleway", sans-serif;
+  background:linear-gradient(to right, #000 40%, transparent);
+}

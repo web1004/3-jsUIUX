@@ -1,0 +1,107 @@
+@import url(reset.css);
+
+body {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+/* Header & Section */
+header, section {
+  text-align: center;
+  font-size: 42px;
+  text-transform: uppercase;
+}
+header{
+  height: 100px;
+  line-height: 100px;
+  background-color: #eee;
+}
+section {
+  height: calc(100vh - 250px);
+  line-height: 500px;
+}
+
+/* Footer */
+footer {
+  background-color: #37393d;
+  color: #fff;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+.copyright {flex: 8;}
+.family {flex: 2}
+.foot-util a {color: yellowgreen;}
+.foot-util a:hover {text-decoration: underline;}
+.foot-util a:last-child {color: #fff;}
+address {
+  color: #999;
+  font-style: normal;
+}
+address .bar {
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background-color: #555;
+  margin: 0 10px;
+}
+
+/* Family Site */
+.dropdown {
+  width: 200px;
+  position: relative;
+  background-color: #303135;
+  padding: 5px;
+  border: 1px solid #555;
+  cursor: pointer;
+  float: right;
+}
+
+/* 
+닫힘: max-height: 0 + opacity: 0 → 안 보임
+열림: .open 클래스가 붙으면 max-height가 커지면서 아래로 펼쳐지는 느낌
+*/
+.sub-navi {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  line-height: 30px;
+  width: 100%;
+  background-color: #58595b;
+  border: 1px solid #999;
+  border-bottom: none;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: max-height 200ms ease, opacity 200ms ease, transform 200ms ease;
+}
+.sub-navi.open {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sub-navi li {
+  padding: 1px 10px;
+  border-bottom: 1px solid #777;
+}
+.sub-navi li:hover {background-color: #333;}
+.sub-navi li a {color: #ccc;}
+
+.title:after {
+  content:"\f107";
+  font-family: fontawesome;
+  position: absolute;
+  top: 0;
+  right:0;
+  color: #ccc;
+  width: 30px;
+  height: 100%;
+  text-align: center;
+  line-height: 30px;
+}
+.title.active:after {transform: rotateX(180deg);}

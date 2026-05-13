@@ -1,0 +1,80 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+body { 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-contents {
+  width: 1000px;
+}
+
+.gallery-contents h2{
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 5px;
+}
+
+.gallery a img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ========== Lightbox Overlay ========== */
+.lightbox-overlay { /* 모달창(Full Screen) */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.95);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s;
+
+  cursor: zoom-out; /* 닫기 힌트 */
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 모달 내용 */
+.lightbox-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-overlay-content img {
+  max-width: min(900px, 90vw);
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.lightbox-overlay span { /* 이미지설명텍스트 */
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding: 20px;
+}

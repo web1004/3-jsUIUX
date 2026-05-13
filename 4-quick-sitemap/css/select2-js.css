@@ -1,0 +1,132 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+body{background:#dddcdb}
+
+section{
+  width:1200px;
+  height:500px;
+  background:skyblue;
+  margin:0 auto;
+}
+
+footer{
+  width: 1200px;
+  height: 70px;
+  margin: auto;
+  background-color: #fff;
+  display: flex;
+}
+
+.foot_left,
+.foot_right{
+  flex: 1;
+  position: relative;
+}
+
+.foot_center{
+  flex: 5;
+  border: solid #ccc;
+  border-width: 0 1px;
+}
+.foot_center p{
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 버튼(Brand site / recruit info) */
+.select{
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.select h3{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #666;
+}
+.fa{
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* 버튼 활성화 상태 (JS에서 .active 토글) */
+.select.active{
+  background-color: #2a2a2a;
+  padding-top: 25px;
+  transition: 0.35s;
+}
+.select.active .fa{color:#fff;}
+.select.active h3{opacity:0;}
+
+/* 메뉴 박스: CSS 트랜지션(max-height)으로 열림/닫힘 */
+.menu{
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  background: #2a2a2a;
+
+  /* 핵심: display:none을 없애고, max-height로 애니메이션 */
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: max-height 250ms ease, opacity 200ms ease;
+}
+
+/* 열림 상태 */
+.menu.open{
+  max-height: 420px; /* 메뉴 최대 높이(넉넉히). 더 길면 값만 키우면 됨 */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu>ul>li{ text-indent: 10px; }
+
+.menu ul li span{
+  display:block;
+  margin:10px 0;
+  color:#fff;
+  font-size:14px;
+  font-weight:400;
+}
+
+.smenu li:last-child{
+  padding-bottom: 5px;
+  border-bottom:solid 1px #535252;
+}
+
+.smenu li a{
+  display:block;
+  font-size: 13px;
+  color:#969696;
+  padding:3px 0;
+}
+.smenu li a:after{
+  content: '\e5cc';
+  font-family: 'Material Symbols Outlined';
+  float:right;
+  margin: 3px 10px 0 0;
+  opacity: 0;
+  transition: 0.35s;
+}
+.smenu li a:hover{
+  color:#fda601;
+  background-color: #000;
+}
+.smenu li a:hover:after{ opacity:1; }
+
+/* 모션 최소화 환경 */
+@media (prefers-reduced-motion: reduce){
+  .menu{transition:none;}
+  .select.active{transition:none;}
+}

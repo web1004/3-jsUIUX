@@ -1,0 +1,70 @@
+@import url(reset.css);
+
+body{
+  background:#999;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* 갤러리 컨테이너 */
+#gallery{
+  position:relative;
+  width:700px;
+  padding:25px;
+  background-color:#eee;
+  box-shadow:0 0 30px rgb(65, 66, 64);
+}
+
+/* 큰 이미지 영역 */
+#largeImg{
+  width:650px;
+  height:400px;
+  border:solid 1px #ccc;
+  margin-bottom:20px;
+
+  /* 오버랩(겹침) 전용: 내부 img를 absolute로 올릴 기준 */
+  position:relative;
+  overflow:hidden;
+}
+
+/* 큰 이미지 공통 스타일 (겹쳐 쌓기 + 페이드 준비) */
+#largeImg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  /* 모두 같은 위치에 겹치기 */
+  position:absolute;
+  left:0;
+  top:0;
+
+  /* 기본은 안 보이게 */
+  opacity:0;
+  pointer-events:none;
+
+  /* 부드러운 전환(원하면 숫자만 조절) */
+  transition:opacity 250ms ease;
+}
+
+/* JS가 활성화한 큰 이미지만 보이게 */
+#largeImg img.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+
+/* 썸네일 */
+.thumbs img{
+  width:80px;
+  height:70px;
+  opacity:0.6;
+  cursor:pointer;
+}
+
+/* JS에서 active 클래스 이동 */
+.thumbs img.active{
+  opacity:1;
+}

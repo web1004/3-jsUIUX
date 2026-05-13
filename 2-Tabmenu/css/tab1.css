@@ -1,0 +1,54 @@
+@import url(reset.css);
+
+body{
+  line-height: 25px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+section{width: 800px;}
+
+/* TabMenu */
+.btn{display: flex;}
+.btn li{
+  width: 120px;
+  background-color: #eee;
+  border-right: 1px solid #ddd;
+  padding: 5px;
+  border-top: 2px solid transparent;
+  cursor: pointer;
+}
+.btn li:last-child {
+  width: 170px;
+  border-right: none;
+}
+.btn li:hover,
+.btn li.active{  /* js에서 active클래스 생성및 삭제 */
+  background-color: #fff;
+  border-top: 2px solid crimson;
+}
+
+
+/* TabContent */
+.tabContents{
+  background-color: #fff;
+  padding: 50px;
+  box-sizing: border-box;
+}
+.tabContents div h2{
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.tabContents div{display: none;}  
+.tabContents div.active{display: block;}  /* JQuery에서 active클래스 생성및 삭제 */
+
+.tabContents div img{
+  float: left;
+  margin-right: 10px;
+}

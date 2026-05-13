@@ -1,0 +1,65 @@
+@import url(reset.css);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+body{
+  font-weight: 300;
+  line-height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+section{
+  /* border: 1px solid #000; */
+  width: 1000px;
+  height: 500px;
+  display: flex;
+}
+.accordion{
+  flex: 1;
+  margin-right: 20px;
+}
+.image{flex: 1;}
+
+.title{
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.title:after{  /* 처음에 보이는 화살표모양(오른쪽방향) */
+  content: '\f105';
+  font-family: fontawesome;
+  float: right;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+.title.active:after{  /* js에서 클릭시 바뀌는 화살표모양(아래방향) */
+  transform: rotate(90deg);
+  color: orange;
+}
+.title:hover,
+.title.active{
+  background-color: #203049;
+  color: #fff;
+}
+.desc{
+  padding: 15px;
+  display: none;
+  font-size:15px;
+}
+.desc.active{display: block;}  /* js에서 active클래스 생성및 삭제 */
+
+/* 오른쪽 이미지가 자연스럽게 바뀌게하고 싶음 */
+.image img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.image img.fade-out {
+  opacity: 0;
+}

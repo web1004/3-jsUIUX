@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>플러그인을이용한자동슬라이드</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/fade.css">
+</head>
+<body>
+  
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="description">
+          <h3>경복궁</h3>
+          <p>1395년 창건된 조선의 으뜸 궁궐.</p>
+          <p>북으로 북악산을 기대어 자리 잡은 수도서울의 중심 경복궁,<br>격조 높고 품위 있는 왕실문화의 진수를 경험하세요.</p>
+          <p><a href="http://webd1004.pe.kr" target="_blank">자세히보기</a></p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="description">
+          <h3>광화문</h3>
+          <p>조선 법궁인 경복궁의 정문.</p>
+          <p>다른 궁궐들의 정문과는 달리 높은 석축과 누각으로<br>마치 성곽의 성문과 같은 격식으로 장대하게 지어졌습니다.</p>
+          <p><a href="#none">자세히보기</a></p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="description">
+          <h3>근정전</h3>
+          <p>경복궁의 정전(正殿).</p>
+          <p>궁궐 내 가장 규모가 크고 격식을 갖춘 건물로<br>조회의식, 대례(大禮) 등 중요행사를 치르던 곳입니다.</p>
+          <p><a href="#none">자세히보기</a></p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="description">
+          <h3>경회루</h3>
+          <p>침전영역 서쪽 연못 안에 조성된 누각.</p>
+          <p>임금과 신하, 외국사신등 연회장소로 사용,<br>경복궁 중건당시 나라의 가뭄이 들 때 기우제를 지내던 곳입니다.</p>
+          <p><a href="#none">자세히보기</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+  <!-- Swiper's Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      effect: "fade",
+      allowTouchMove: false, // 마우스/터치 드래그 넘김 막기
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+</body>
+</html>

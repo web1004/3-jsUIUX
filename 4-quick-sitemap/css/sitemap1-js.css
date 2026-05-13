@@ -1,0 +1,141 @@
+@import url(reset.css);
+
+#wrap{width:100%;}
+
+section{
+  width:1200px;
+  height:600px;
+  margin:0 auto;
+  background-color:#ccc;
+}
+
+/* ============ footer ============ */
+/* ✅ 버튼이 보이게 하려면 footer에 overflow:hidden을 두면 안 됩니다.
+   대신 실제로 접히는 대상은 .sitemap(내용)으로 바꿉니다. */
+.footer_sitemap{
+  width:100%;
+  margin:100px auto 0;
+  border-top: 1px solid #c3c3c3;
+}
+
+/* 열림 상태에서만 하단 라인 */
+.footer_sitemap.open{
+  border-bottom: 1px solid #c3c3c3;
+}
+
+/* 높이 고정(220px) 제거: 닫힘 상태에선 .sitemap이 0이라 컨테이너도 0이 됨 */
+.sitemap_in{
+  position:relative;
+  width:1200px;
+  margin:auto;
+  text-align: center;
+}
+
+.sitemap_btn{
+  width: 120px;
+  height: 30px;
+  border-radius: 5px 5px 0 0;
+  background-color: #61bc47;
+  color: #fff;
+
+  position:absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  cursor: pointer;
+  user-select: none;
+}
+.sitemap_btn .fa{margin-left: 10px;}
+
+/* ==== sitemap(내용) ==== */
+/* ✅ 접힘 애니메이션은 여기서 처리 */
+.sitemap{
+  display:block;
+  overflow:hidden;
+  max-height: 0;
+
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+
+  transition: max-height 350ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
+.sitemap.open{
+  max-height: 260px;   /* 내부 콘텐츠(약 220px) + 여유 */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sitemap_list{display: flex;}
+.sitemap_list>li{
+  flex: 1;
+  height:220px;
+  padding:20px 0 0 20px;
+  border-right:1px solid #e5e5e5;
+  line-height:20px;
+}
+.sitemap_list>li:first-child{border-left:1px solid #e5e5e5;}
+.sitemap_list>li>a{
+  display:block;
+  margin-bottom:10px;
+  font-size:15px;
+  color:#61bc47;
+}
+
+.site_sub>li{line-height:20px;}
+.site_sub>li>a{
+  color:#5e5e5e;
+  font-size: 14px;
+}
+.site_sub2>li{line-height:16px;}
+.site_sub2>li>a{
+  font-size:12px;
+  color:#b1b1b1;
+}
+
+.footer_copy{
+  width: 1200px;
+  height: 150px;
+  margin: 30px auto;
+  display: flex;
+}
+.copy_left{flex: 1;}
+.copy_center{flex: 5;}
+.copy_right{
+  height: 70px;
+  flex: 1;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+  border-top: 1px solid #c3c3c3;
+  border-bottom: 1px solid #c3c3c3;
+}
+.copy_right span{color: crimson;}
+.copy_center ul{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.copy_center ul li{
+  margin: 0 10px;
+  font-size: 14px;
+  color: #555;
+}
+address{
+  font-style:normal;
+  color:#9b9b9b;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .sitemap{transition:none;}
+}

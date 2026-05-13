@@ -1,0 +1,60 @@
+@import url(reset.css);
+
+body{background-color: #2c3e50;}
+
+.sidebar-content {
+	background-color: #fff;
+	width: 250px;
+	position: fixed;
+	top: 0;
+	left: -250px;  /* 왼쪽방향으로 안보이게 위치해놓음 */
+	height: 100vh;
+	padding: 25px;
+	transition: 0.35s;
+}
+.sidebar-content h2{
+	text-align: center;
+	margin-bottom: 50px;
+}
+.side-banner ul li{
+	width: 200px;
+	height: 100px;
+	background-color: antiquewhite;
+	margin: 20px 0;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+}
+.side-banner ul li:nth-child(1){background-color: yellowgreen;}
+.side-banner ul li:nth-child(2){background-color: gold;}
+.side-banner ul li:nth-child(3){background-color: dodgerblue;}
+
+.btn-sidebar {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 40px;
+	height: 120px;
+	background-color: #000;
+	border-radius: 0 5px 5px 0;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+}
+.btn-sidebar .icon{margin-bottom: 10px;}
+.btn-sidebar span:nth-child(2) {
+	writing-mode: vertical-lr;
+	text-transform: uppercase;
+}
+
+/* Active CSS-JQuery에서 클래스 생성 및 삭제 */
+.sidebar-content.active {left: 0;}
+.sidebar-content.active .btn-sidebar {
+	background-color: crimson;
+}
