@@ -1,0 +1,65 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+body{
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.gnb .allmenu {
+  background-color: crimson;
+  text-align: center;
+  font-size: 18px;
+}
+.gnb{
+  margin-top: 50px;
+  width: 250px;
+  border-radius: 5px;
+  background-color: #535c68;
+  overflow: hidden;
+}
+
+/* 주메뉴 */
+.gnb li a{
+  color: #fff;
+  text-transform: capitalize;
+  padding: 20px;
+  display: block;
+}
+.gnb>.main{border-bottom: 1px solid rgba(0, 0, 0, 0.15);}
+.gnb>.main:last-child{border-bottom: none;}
+.gnb>.main>a{  padding: 10px;}
+
+.gnb>.main>a:after {  /* 처음에 보이는 화살표(아래방향) */
+  content: "\f107";
+  font-family: fontawesome;
+  float: right;
+}
+.gnb>.main>a.uparrow:after {  /* 클릭시 바뀌는 화살표(위쪽방향)->제이쿼리에 불러냄 */
+  content: "\f106";
+  font-family: fontawesome;
+  float: right;
+}
+
+
+/* 서브메뉴 */
+.sub {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+}
+.sub li{
+	background:#626e7e;
+  height:40px;
+  /* line-height: 40px; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.sub li:last-child {border-bottom: none;}
+.sub li a{
+  color: #e8e8e8;
+  padding: 10px;
+}

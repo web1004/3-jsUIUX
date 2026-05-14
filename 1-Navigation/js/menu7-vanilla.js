@@ -1,8 +1,7 @@
-$(document).ready(function(){
+const trigger = document.querySelector('.trigger');
+const modalGnb = document.querySelector('.modal-gnb');
 
-  $(".trigger").click(function(){
-    $(this).toggleClass("active");
-    $(".modal-gnb").fadeToggle();
-  });
-
+trigger.addEventListener('click', function () {
+  trigger.classList.toggle('active');
+  modalGnb.classList.toggle('active');
 });

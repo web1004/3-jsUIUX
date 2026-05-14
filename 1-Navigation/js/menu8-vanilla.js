@@ -1,13 +1,13 @@
-$(document).ready(function(){
+const items = document.querySelectorAll('.navi li');
+const photo = document.querySelector('.photo');
 
-  $(".navi li").mouseenter(function(){
-    let changeImage = $(this).attr("data-image");
-    //$(".photo").css({"background-image":"url("+ changeImage + ")"});
-    $(".photo").css({"background-image":`url(${changeImage})`});
+items.forEach(function (item) {
+  item.addEventListener('mouseenter', function () {
+    const changeImage = item.getAttribute('data-image');
+    photo.style.backgroundImage = `url(${changeImage})`;
   });
 
-  $(".navi li").mouseleave(function(){
-    $(".photo").css({"background-image": ""});
+  item.addEventListener('mouseleave', function () {
+    photo.style.backgroundImage = '';
   });
-
 });

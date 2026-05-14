@@ -1,0 +1,107 @@
+@import url(reset.css);
+
+body{background-color: #888;}
+
+header{
+  width: 100%;
+  height: 60px;
+  background-color: #2b2f3a;
+  position: relative;
+}
+nav{
+  width: 1200px;
+  height: inherit;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: relative; */
+}
+
+/* Main Menu */
+ul.gnb{
+  /* border: 1px solid green;  */
+  display: flex;
+
+}
+.gnb>.main{ /* 자손선택자로 메인메뉴에만 적용하게 함(.gnb에서 첫번째 자식인 .main만 적용) */
+  position: relative;
+
+}
+.gnb>.main>a{
+  /* border: 1px solid red; */
+  /* position: relative; */
+  height: 60px;
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+  color: #7a8189;
+  font-size: 15px;
+	font-weight: 600;
+  text-transform: uppercase;
+  overflow: hidden;
+
+}
+.gnb>.main:hover>a{color: #fff;}
+
+
+/* Sub Menu */
+.sub{
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  height: 220px;
+  top: 100%;
+  left: 0;
+  border-left:solid 1px #e8e8e8;
+  display: block;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.4s ease;
+}
+.sub.last{border-right:solid 1px #e8e8e8;}
+.sub li{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub li a {
+	color: #999;
+	font-size: 14px;
+}
+.sub li:hover a{color: cornflowerblue;}
+
+/*100%서브배경박스*/
+.sub_bgbox{ 
+  position: absolute;
+  top: 100%;
+  left: 0 ;
+	width:100%;
+	height:220px; 
+  background-color: #fff;
+  display: block;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.4s ease;
+}
+
+/* 각 메인메뉴마다 나올 서브배경박스의 왼쪽이미지 */
+.sub_bgbox_img{
+  /* border: 1px solid red; */
+  position: absolute;
+  width: 1200px;
+  height: inherit;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background-repeat: no-repeat;
+  background-position: 100px center;
+}
+
+
+section p{
+  font-size: 48px;
+  color: #666;
+}
