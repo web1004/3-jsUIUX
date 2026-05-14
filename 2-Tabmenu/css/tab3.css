@@ -38,7 +38,7 @@ section{
   margin-right: 5px;
   transition: 0.3s;
 }
-.title.active:after{  /* js에서 클릭시 바뀌는 화살표모양(아래방향) */
+.title.active:after{  /* JQuery에서 클릭시 바뀌는 화살표모양(아래방향) */
   transform: rotate(90deg);
   color: orange;
 }
@@ -52,7 +52,7 @@ section{
   display: none;
   font-size:15px;
 }
-.desc.active{display: block;}  /* js에서 active클래스 생성및 삭제 */
+.desc.active{display: block;}  /* JQuery에서 active클래스 생성및 삭제 */
 
 /* 오른쪽 이미지가 자연스럽게 바뀌게하고 싶음 */
 .image img {

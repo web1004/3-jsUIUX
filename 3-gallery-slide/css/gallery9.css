@@ -20,7 +20,7 @@
   flex-wrap: wrap; 
 }
 .port-list ul li{
-  display: none;  /* 전체목록을 안보이게 하고 JQuery에서 3개씩 보이게 함 */
+  display: none;  /* 전체목록을 안보이게 하고 JS에서 3개씩 보이게 함 */
   width: 380px;
   height: 320px;
   margin-bottom: 30px;
@@ -43,7 +43,7 @@
   color:#119ec0;
 }
 
-.load-more {  /* JQuery에서 더 이상 목록이 없으면 버튼이 사라지게 함 */
+.load-more {  /* JS에서 더 이상 목록이 없으면 버튼이 사라지게 함 */
   display: block;
   background-color: crimson;
   color: #fff;

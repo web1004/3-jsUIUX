@@ -32,5 +32,5 @@ body {
 	height: 70px;
 	opacity: 0.6;
 }
-.thumbs img.active {opacity: 1;}  /* js에서 썸네일 클릭시에 active클래스 이동 */
+.thumbs img.active {opacity: 1;}  /* JQuery에서 썸네일 클릭시에 active클래스 이동 */
 

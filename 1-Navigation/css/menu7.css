@@ -1,0 +1,198 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('http://fonts.googleapis.com/css?family=Monoton');
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-weight: 300;
+}
+
+/* BG Video */
+.video-frame video{
+  position: fixed;
+  min-width: 100%; /* 최소의 너비,높이 ->영상이 작더라도 가득 채우라는 뜻 */
+  min-height: 100%;
+  z-index: -1;
+}
+.video-frame:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-135deg, royalblue, transparent); 
+}
+
+/* logo */
+.logo{
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+/* Heading(왼쪽에서 등장 */
+.heading{
+  /* border: 1px solid red; */
+  position: absolute;
+  left: 100px;
+  bottom: 100px;
+  width: 700px;
+  animation: showing1 0.5s linear;
+  animation-fill-mode: both; /* 애니메이션 한번 실행후 끝지점에서 멈춤 */
+}
+.heading h1{
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.heading h1 span{
+  display: block;
+  font-size: 60px;
+  color: crimson;
+}
+.heading p{
+  font-size: 20px;
+  line-height: 25px;
+}
+.btn-res, .btn-more{
+  background-color: #fff;
+  color: #222;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 30px 5px 0 0;
+  transition: 0.3s;
+}
+.btn-more{
+  background-color: transparent;
+  color: #fff;
+  padding: 7px 15px;
+}
+.btn-res:hover{
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+.btn-more:hover{
+  background-color: #fff;
+  color: #000;
+}
+
+/* Anniversary(오른쪽에서 등장) */
+.anniversary{
+  position: absolute;
+  right: 100px;
+  bottom: 50px;
+  color: #fff;
+  text-align: center;
+  animation: showing2 0.5s linear;
+  animation-fill-mode: both; /* 애니메이션 한번 실행후 끝지점에서 멈춤 */
+}
+.anniversary em{
+  display: block;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin-bottom: -20px;
+}
+.anniversary span{
+  font-family: 'Monoton', sans-serif;
+  font-size: 150px;
+}
+
+/* Trigger */
+.trigger{
+  /* border: 1px solid red; */
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  width: 40px;
+  height: 20px;
+  z-index: 100;
+}
+.trigger span{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  transition: 0.3s;
+}
+.trigger span:nth-child(1){top: 0;}
+.trigger span:nth-child(2){top: 50%;width: 80%;}
+.trigger span:nth-child(3){top: 100%;}
+
+/* jQuery에서 trigger클릭시 바뀌는 부분______ */
+.trigger.active span{background-color: #fff;}
+.trigger.active span:nth-child(1){top: 50%;transform: rotate(45deg);}
+.trigger.active span:nth-child(2){opacity: 0;}
+.trigger.active span:nth-child(3){top: 50%;transform: rotate(-45deg);}
+
+/* Modal GNB */
+.modal-gnb{  /* 꽉찬 투명한 검정배경(모달창) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+}
+.gnb{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.gnb a{
+  display: block;
+  font-size: 60px;
+  padding: 10px;
+  text-transform: capitalize;
+  transition: 0.3s;
+  animation: gnb 0.5s linear;
+  animation-fill-mode: both;
+}
+.gnb a:hover{color: crimson;}
+.gnb a:nth-child(1){animation-delay: 0.5s;}
+.gnb a:nth-child(2){animation-delay: 0.7s;}
+.gnb a:nth-child(3){animation-delay: 0.9s;}
+.gnb a:nth-child(4){animation-delay: 1.1s;}
+.gnb a:nth-child(5){animation-delay: 1.3s;}
+
+/*Animation*/
+@keyframes showing1{
+  0%{
+    opacity: 0;
+    margin-left: -100px;
+  }
+  100%{
+    opacity: 1;
+    margin-left: 0px
+  }
+}
+
+@keyframes showing2{
+  0%{
+    opacity: 0;
+    margin-right: -100px;
+  }
+  100%{
+    opacity: 1;
+    margin-right: 0px
+  }
+}
+
+@keyframes gnb{
+  0%{
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -11,6 +11,7 @@ header{
 	top: 0;
 	left: 0;
 	z-index: 100;
+	/* transition: 0.5s; */
 }
 .image img {
 	transition: opacity 0.4s ease;
@@ -20,6 +21,7 @@ header dl{
 	z-index: 200;
 }
 header dl dt { /*탭부분*/
+	/* position: relative; */
 	width: 60px;
 	height: 400px;
 	background: rgba(51, 102, 204, 0.6);
@@ -27,20 +29,23 @@ header dl dt { /*탭부분*/
 	float: left;
 	box-sizing: border-box;
 	cursor: pointer;
-	writing-mode: horizontal-tb;  
+	writing-mode: horizontal-tb;  /* 세로글자 */
 	transition: 0.3s;
 }
 header dl dt span {
 	display: block;
 	color: #fff;
 	width: 20px;
+	/* border: 1px solid #000; */
 	margin: auto;
 	font-size: 17px;
 	margin-top: 20px;
 	font-weight: normal;
 }
-/* js에서 active클래스 생성및 삭제 */
-dt.selected { background: rgba(5, 55, 155, 0.9);}
+dt.selected { /* JQuery에서 active클래스 생성및 삭제 */
+	/* cursor: default; ->화살표모양을 다시 나오게함*/
+	background: rgba(5, 55, 155, 0.9);
+}
 
 header dl dd { /*각 탭의 내용*/
 	width: 800px;
@@ -49,6 +54,7 @@ header dl dd { /*각 탭의 내용*/
 	float: left;
 	position: relative;
 	overflow: auto;
+	/*background:pink;*/
 }
 header dl dd:first-of-type {display: block;}
 .content {padding: 30px;}
@@ -74,7 +80,8 @@ header dl dd:first-of-type {display: block;}
 }
 .content .read-more a {color: #fff;}
 
-.text{  /* js에서 data속성을 이용한 텍스트출력 */
+.text{  /* JQuery에서 data속성을 이용한 텍스트출력 */
+	/* background-color: yellow; */
 	width: 800px;
 	height: 100px;
 	position: absolute;

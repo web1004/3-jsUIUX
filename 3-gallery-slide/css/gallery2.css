@@ -49,7 +49,7 @@ body{
 }
 
 /* JS가 활성화한 큰 이미지만 보이게 */
-#largeImg img.active{
+#largeImg img.is-active{
   opacity:1;
   pointer-events:auto;
 }

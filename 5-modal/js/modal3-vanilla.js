@@ -1,35 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const modals = document.querySelectorAll(".modal");
+  const items = document.querySelectorAll(".item_list li");
+  const modal = document.querySelector(".modal");
+  const panels = document.querySelectorAll(".modal-content > li");
+  const cur = document.querySelector(".page-num span:nth-child(1)");
+  const closeBtn = document.querySelector(".close");
+  const prevBtn = document.querySelector(".pre");
+  const nextBtn = document.querySelector(".next");
 
-  const closeAll = () => modals.forEach(m => m.classList.remove("is-open")); //모달 목록을 한 번씩 돌면서 닫기 처리
+  let index = 0;
+  const last = items.length - 1;
 
-  document.addEventListener("click", (e) => {
-    // 1) 메뉴 클릭: 다음 형제(.modal) 열기 (한 번에 하나만)
-    const menu = e.target.closest(".menu");  //클릭한 곳(e.target)에서 부모로 올라가며 .menu를 찾음
-    if (menu) {
-      e.preventDefault();
-      closeAll();
-      const modal = menu.nextElementSibling; // HTML에서 .menu 다음 형제 요소를 가져옴
-      if (modal && modal.classList.contains("modal")) modal.classList.add("is-open"); //조건이 통과하면 .is-open 클래스를 추가해서 모달이 “열린 상태”가 됨
-      /* 
-      만약 구조가 바뀌거나(중간에 다른 요소가 끼거나) nextElementSibling이 없다면 modal은 null이 될 수 있고,
-      null이면 false 취급이라서 뒤에 있는 modal.classList.contains(...) 를 아예 실행하지 않고 멈춤
-      modal이 null인 상태에서 실행하면 에러가 나는데, 그걸 방지하는 안전장치임
-      classList.contains("modal") : 다음 형제가 진짜 모달(.modal)일 때만 열기
+  const show = (i) => {
+    /* 
+    인덱스(몇 번째 내용 보여줄지)를 “항상 안전한 범위(0 ~ last)” 안으로 강제로 맞춰주는 코드
+    i : “지금 보여주고 싶은 번호” (예: next 누르면 index + 1 같은 값)
+    last : 마지막 인덱스 (예: 10개면 9)
 
-      */
-      return;
-    }
+    Math.min(last, i)
+    i가 너무 크면(예: 12) → last로 깎아줌(즉 “최대값은 last”로 제한)
+    예) last=9 일때 Math.min(9, 12) = 9 / Math.min(9, 5) = 5
 
-    // 2) 닫기 버튼 클릭: 해당 모달만 닫기
-    const closeBtn = e.target.closest(".close");
-    if (closeBtn) {
-      closeBtn.closest(".modal")?.classList.remove("is-open");
-      return;
-    }
+    Math.max(0, (위 결과))
+    위 결과가 너무 작으면(예: -3) → 0으로 올려줌(즉 “최소값은 0”으로 제한)
+    예)Math.max(0, -3) = 0  /  Math.max(0, 5) = 5
+    */
+    index = Math.max(0, Math.min(last, i));
+    panels.forEach((p, n) => p.classList.toggle("is-on", n === index));
+    cur.textContent = index + 1;
+    modal.classList.add("is-open");
+    modal.scrollTop = 0; //이전처럼 페이지 이동/열기마다 모달 스크롤 맨 위로
+  };
 
-    // 3) 검정 배경(.modal) 클릭: 닫기 (내용 영역 클릭은 무시)
-    const modalBg = e.target.closest(".modal");
-    if (modalBg && e.target === modalBg) modalBg.classList.remove("is-open");
+  const hide = () => {
+    modal.classList.remove("is-open");
+    panels.forEach(p => p.classList.remove("is-on"));
+  };
+
+  items.forEach((li, i) => li.addEventListener("click", () => show(i)));
+
+  prevBtn.addEventListener("click", () => index > 0 && show(index - 1));
+  nextBtn.addEventListener("click", () => index < last && show(index + 1));
+  closeBtn.addEventListener("click", hide);
+
+  // 검정 배경 클릭 시 닫기 (내용 클릭은 제외)
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) hide();
   });
+
+  /* 
+  modal.addEventListener("click", hide);
+  이렇게 하면 .modal 안에 있는 모든 요소를 클릭해도 닫혀버려.
+  왜냐하면 이벤트가 부모(.modal)까지 버블링되기 때문
+  */
+
 });

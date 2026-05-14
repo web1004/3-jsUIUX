@@ -26,6 +26,3 @@ dots.forEach((a, index) => {
 
 // 초기 상태
 goTo(0);
-
-// (선택) 창 크기 바뀌면 현재 슬라이드 위치 재계산
-window.addEventListener("resize", () => goTo(current));

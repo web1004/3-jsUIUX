@@ -27,7 +27,7 @@ section{width: 800px;}
   border-right: none;
 }
 .btn li:hover,
-.btn li.active{  /* js에서 active클래스 생성및 삭제 */
+.btn li.active{  /* JQuery에서 active클래스 생성및 삭제 */
   background-color: #fff;
   border-top: 2px solid crimson;
 }

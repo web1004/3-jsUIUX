@@ -1,5 +1,8 @@
 @import url(reset.css);
 
+
+/*Tab Menu ---------------------------------------*/
+
 #tabmenu{
   width:960px;
   height:500px;
@@ -15,7 +18,7 @@
 }
 .tab li{
   width:160px; 
-  height:70px; /*js에서 탭메뉴 움직이는 거리*/
+  height:70px; /*->jQuery에서 탭메뉴 움직이는 거리*/
   box-sizing:border-box;
   float:left;
   border-bottom:1px solid #ccc;
@@ -36,8 +39,8 @@
   position:absolute;
   width:160px;
   left:0px;
-  top:0px;          
-  transition: top 0.35s ease;
+  top:0px;           /* ✅ 이거 추가 */
+  transition: top 0.35s ease; /* ✅ (선택) JS 대신 CSS에 둬도 좋음 */
 }
 .tab-highlight:after{   /*삼각형모양*/
   content:"";
@@ -53,6 +56,8 @@
   border-bottom: 10px solid transparent;
 }
 
+
+/*Tab Mneu Contents ---------------------------------------*/
 .tab-contents div{
   margin-top:40px;
   width:700px;

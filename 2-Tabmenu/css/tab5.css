@@ -1,5 +1,8 @@
 @import url(reset.css);
 
+
+/*Tab Menu ---------------------------------------*/
+
 #tabmenu{
   width:800px;
   height:600px;
@@ -15,7 +18,7 @@
 }
 .tab{display: flex;}
 .tab li{
-  width:160px; /* js에서 탭메뉴 움직이는 거리*/
+  width:160px; /*->jQuery에서 탭메뉴 움직이는 거리*/
   height:70px;
   box-sizing:border-box;
   border-left:1px solid #ccc;
@@ -24,6 +27,7 @@
   line-height:70px;
   text-align:center;
   letter-spacing:1px; 
+  /* position:relative; */
   z-index:100;  
 }
 .tab li:last-of-type{border-right:1px solid #ccc;}
@@ -36,7 +40,6 @@
   width:160px;
   top: 0;
   left:0px;
-  transition: left 0.35s ease;
 }
 .tab-highlight:after{   /*삼각형모양*/
   content:"";
@@ -52,6 +55,8 @@
   border-top:15px solid #000;
 }
 
+
+/*Tab Mneu Contents ---------------------------------------*/
 .tab-contents div{
   margin-top:40px;
   width:740px;
@@ -60,6 +65,7 @@
   display:none;   
 }
 .tab-contents div.active{display:block;}
+
 .tab-contents #tab1{background-color:#12578f;}
 .tab-contents #tab2{background-color:#64416e;}
 .tab-contents #tab3{background-color:#397741;}

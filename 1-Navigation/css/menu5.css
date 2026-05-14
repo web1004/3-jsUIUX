@@ -1,0 +1,57 @@
+@import url(reset.css);
+
+body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a{
+  margin: 0 20px;
+}
+#horizontal{
+  border: 1px solid #000;
+  width: 1200px;
+  height: 60px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-underline{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 0;
+  height: 4px;
+  background-color: crimson;
+  transition: 0.5s;
+}
+
+
+#vertical{
+  border: 1px solid #000;
+  margin-top: 50px;
+  width: 350px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#vertical a{
+  margin: 20px 0;
+}
+.vertical-underline{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 0;
+  height: 4px;
+  background-color: royalblue;
+  transition: 0.5s;
+}

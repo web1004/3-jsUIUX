@@ -1,32 +1,30 @@
-@charset "utf-8"; 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@charset "utf-8";
 
-
-*{ 
+*{ /* 전체선택자->모든 태그(*)에 여백을 뺌 */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html,body{
-  width: 100%;
-  height: 100%;
+	width:100%; 
+	height:100%;
+}
+html{
+  overflow-y:scroll; /* 문서전체에 세로 스크롤바자국 항상 표시 */
+  overflow-x:hidden; /* 문서전체에 가로 스크롤바자국 항상 숨김 */ 
 }
 
-html{overflow-x:hidden;}
-
-body{
-  font-family: 'Noto Sans KR', sans-serif;
+/*시맨틱태그를 지원하지 않은 브라우저 
+-> 인식하지 못하는 태그를 인라인으로 인식하기때문에 강제로 블럭으로 설정함*/
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 
-li{list-style-type: none;}  
-
+ol, ul {
+	list-style: none; /* 목록에 블릿 없애기 */
+}
 a{
-  text-decoration: none;  
-  color: inherit;   
-}
-
-article,aside,details,summary,figcaption,figure,
-footer,header,hgroup,main,nav,section{ 
-	display:block;  
+  text-decoration: none; /*하이퍼링크 밑줄 없애기*/
+  color: inherit; /*하이퍼링크의 글자색 부모한테 상속받기*/
 }
